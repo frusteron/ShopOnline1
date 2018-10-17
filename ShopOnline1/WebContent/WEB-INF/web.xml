@@ -30,4 +30,14 @@
   <servlet-name>Logout</servlet-name>
   <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  
+  <!-- ListaProdotti -->
+  <servlet>
+  <servlet-name>ListaProdotti</servlet-name>
+  <servlet-class>it.overnet.controller.ListaProdotti</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ListaProdotti</servlet-name>
+  <url-pattern>/listaProdotti</url-pattern>
+  </servlet-mapping>
 </web-app>
