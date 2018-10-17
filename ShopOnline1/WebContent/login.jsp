@@ -27,11 +27,28 @@
       <% if (utente == null) { %>
       <li><a href="registrazione.jsp">Registrazione</a></li>
       <li><a href="login.jsp">Login</a></li>
+      <% } else { %>
+      <li><a href="logout">Logout</a></li>
+     <li><a href="listaAcquisti">Lista Acquisti</a></li>
+          <li><a href="listaOrdini">Lista Ordini</a></li>
+     
       <% } %>
+       <li><a href="listaProdotti">Lista Prodotti</a>
+            <li><a href="listaOfferta">Lista Offerta</a>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+        Generi
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+       <li><a href="listaCategoria?categoria=SCARPE">SCARPE</a></li>
+          <li><a href="listaCategoria?categoria=PANTALONI">PANTALONI</a></li>
+          <li><a href="listaCategoria?categoria=MAGLIERIA">MAGLIERIA</a></li>
+          <li><a href="listaCategoria?categoria=ACCESSORI">ACCESSORI</a></li>
         </ul>
       </li>
+    </ul>
   </div>
-  </nav>
+</nav>
   
   
   <!-- chiusura navbar -->
