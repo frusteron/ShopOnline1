@@ -9,7 +9,7 @@ public class Acquisto {
 	private LocalDate dataInizio;
 	private LocalDate dataFine;
 	private double prezzoDiSpedizione;
-	private int  quantitaAquistata;
+	private int quantitaAcquistata;
 	private int idUtente;
 	private int idProdotto;
 	public int getId() {
@@ -44,11 +44,11 @@ public class Acquisto {
 	public void setPrezzoDiSpedizione(double prezzoDiSpedizione) {
 		this.prezzoDiSpedizione = prezzoDiSpedizione;
 	}
-	public int getQuantitaAquistata() {
-		return quantitaAquistata;
+	public int getQuantitaAcquistata() {
+		return quantitaAcquistata;
 	}
-	public void setQuantitaAquistata(int quantitaAquistata) {
-		this.quantitaAquistata = quantitaAquistata;
+	public void setQuantitaAquistata(int quantitaAcquistata) {
+		this.quantitaAcquistata = quantitaAcquistata;
 	}
 	public int getIdUtente() {
 		return idUtente;
@@ -65,7 +65,7 @@ public class Acquisto {
 	@Override
 	public String toString() {
 		return "Acquisto [id=" + id + ", dataInizio=" + dataInizio + ", dataFine=" + dataFine + ", prezzoDiSpedizione="
-				+ prezzoDiSpedizione + ", quantitaAquistata=" + quantitaAquistata + ", idUtente=" + idUtente
+				+ prezzoDiSpedizione + ", quantitaAcquistata=" + quantitaAcquistata + ", idUtente=" + idUtente
 				+ ", idProdotto=" + idProdotto + "]";
 	}
 	
