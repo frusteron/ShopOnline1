@@ -18,12 +18,13 @@ private Connection connection;
 
 	@Override
 	public void insertUtente(Utente utente) {
-		String istruzione = "insert into utente values(utente_seq.nextval,?,?,?,?)";
+		String istruzione = "insert into utente values(utente_seq.nextval,?,?,?,?,?)";
 		try(PreparedStatement prepared = connection.prepareStatement(istruzione)){
 			prepared.setString(1, utente.getNome());
 			prepared.setString(2, utente.getCognome());
 			prepared.setString(3, utente.getUsername());
 			prepared.setString(4, utente.getPassword());
+			prepared.setString(5, utente.getIndirizzo());
 			prepared.executeUpdate();
 			System.out.println("utente inserito");
 		} catch (SQLException e) {
@@ -48,6 +49,8 @@ private Connection connection;
 				utente.setCognome(resultSet.getString(3));
 				utente.setUsername(resultSet.getString(4));
 				utente.setPassword(resultSet.getString(5));
+				utente.setIndirizzo(resultSet.getString(6));
+				
 				
 			}
 		} catch (SQLException e) {

@@ -80,15 +80,16 @@ public class ProdottoDaoImpl implements ProdottoDao {
 		return listaCategoria;
 	}
 	@Override
-	public List<Prodotto> getAllInOfferta(boolean offerta) {
+	public List<Prodotto> getAllInOfferta() {
 		List<Prodotto> listaOfferta = new ArrayList<>();
+		Prodotto prodotto = null;
 		String query = "select * from prodotto where offerta = ?";
 		ResultSet rs = null;
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
-			prepared.setBoolean(1, offerta);
+			prepared.setBoolean(1,prodotto.isOfferta());
 			rs = prepared.executeQuery();
 			while (rs.next()) {
-				Prodotto prodotto = new Prodotto();
+			   prodotto = new Prodotto();
 				prodotto.setId(rs.getInt(1));
 				prodotto.setNome(rs.getString(2));
 				prodotto.setCategoria(Categoria.valueOf(rs.getString(3)));
@@ -115,10 +116,11 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	}
 
 	@Override
-	public void updateQuantita(int idProdotto) {
-		String query = "update film set quantita_disponibile = quantita_disponibile - 1 where id = ?";
+	public void updateQuantita(int idProdotto, int quantità) {
+		String query = "update prodotto set quantita_disponibile = quantita_disponibile - ? where id = ?";
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
-			prepared.setInt(1, idProdotto);
+			prepared.setInt(1, quantità);
+			prepared.setInt(2, idProdotto);
 			prepared.executeUpdate();
 			System.out.println("quantità aggiornata");
 		} catch (SQLException e) {
@@ -136,7 +138,23 @@ public class ProdottoDaoImpl implements ProdottoDao {
 			}
 		}
 	}
-		
+
+	@Override
+	public List<Prodotto> getAllProdottiAcquistati() {
+		List<Prodotto> listaProdotti = new ArrayList<>();
+		String query = "select * from prodotto  inner join acquisto"
+		return null;
 	}
+
+	@Override
+	public List<Prodotto> getAllProdottiOrdinati() {
+		
+		return null;
+	}
+
+
+	}
+		
+
 
 

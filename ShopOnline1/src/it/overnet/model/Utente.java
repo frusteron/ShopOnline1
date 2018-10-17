@@ -8,6 +8,7 @@ public class Utente {
 	private String username;
 	private String password;
 	private String indirizzo;
+	
 	public int getId() {
 		return id;
 	}
