@@ -17,6 +17,7 @@
 <% Utente utente = (Utente) session.getAttribute("utenteLoggato"); %>
 
 
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -35,6 +36,7 @@
       <% } %>
       <li><a href="listaProdotti">Lista Prodotti</a>
             <li><a href="listaOfferta">Lista Offerta</a>
+            
       
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="">
@@ -48,8 +50,17 @@
         </ul>
       </li>
     </ul>
+    
+     <form class="navbar-form navbar-left search" action="">
+      <div class="form-group" >
+        <input type="text" class="form-control" placeholder="Inserisci Testo" name="search">
+      </div>
+      <button type="submit" class="btn btn-default">Cerca</button>
+    </form> 
   </div>
+  
 </nav>
+
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
   <!-- Indicators -->

@@ -86,11 +86,28 @@ request.getAttribute("listaProdotti");%>
 <td><%=prodotto.getMarca() %> </td>
 <td><%=prodotto.getPrezzo() %> </td>
 <td><%=prodotto.getQuantitaDisponibile() %> </td>
-<td>img="<%=prodotto.getImmagine() %> </td>
+<td><img src="<%=prodotto.getImmagine() %>"> </td>
 <td>
 <form action="Acquista" method="get">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
-<input type="submit" value="Acquista" 
+<input type="submit" value="Acquista"
+<% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
+class="btn btn-warning disabled" onclick="return false"
+<% } else { %>
+class="btn btn-warning"
+<% } %>
+<% if (utente == null) { %>
+data-toggle="popover" title="Fai<br>la</br>Login"
+<% } %>
+<% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
+data-toggle="popover" title="Attualmente Non Disponibile"
+<% } %>
+>
+
+
+<form action="Aggiungi al carrello" method="get">
+<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
+<input type="submit" value="Agiungi al carrello"
 <% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
 class="btn btn-warning disabled" onclick="return false"
 <% } else { %>
