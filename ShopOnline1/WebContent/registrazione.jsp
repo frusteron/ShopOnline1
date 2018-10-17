@@ -12,6 +12,8 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js">
 </script>
 <script type="text/javascript" src="js/gestioneForm.js"></script>
+<script type="text/javascript" src="js/occhiolino.js"></script>
+<link rel="stylesheet" href="css/stile.css">
 </head>
 <body>
 
@@ -88,7 +90,10 @@
 <div class="col-lg-5">
 <input type="password" name="password" id="password" class="form-control">
 </div>
-<span class="col-lg-3"></span>
+<div class="col-lg-1">
+<button onclick="return cambia()" class="botton-occhiolino"><img src="img/eye.png" class="occhiolino"></button>
+</div>
+<span class="col-lg-2"></span>
 </div>
 
 <div class="form-group">
