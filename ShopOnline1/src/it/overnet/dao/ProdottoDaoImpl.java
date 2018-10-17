@@ -156,6 +156,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 					prodotto.setOfferta(rs.getBoolean(6));
 					prodotto.setSconto(rs.getInt(7));
 					prodotto.setQuantitaDisponibile(rs.getInt(8));
+					prodotto.setImmagine(rs.getString(9));
 					listaProdotti.add(prodotto);
 			}
 		} catch (SQLException e) {
