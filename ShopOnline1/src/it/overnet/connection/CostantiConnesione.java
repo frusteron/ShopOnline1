@@ -11,9 +11,9 @@ public class CostantiConnesione {
 	//127.0.0.1
 	//DESKTOP-3UF9CLF
 	
-	public static final String DB_USER = "videoteca";
+	public static final String DB_USER = "shop";
 	
-	public static final String DB_PASSWORD = "videoteca";
+	public static final String DB_PASSWORD = "shop";
 	
 	
 	
