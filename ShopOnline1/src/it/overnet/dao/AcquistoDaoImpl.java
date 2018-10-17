@@ -12,6 +12,7 @@ import java.util.List;
 import it.overnet.connection.DBConnection;
 import it.overnet.model.Acquisto;
 import it.overnet.model.Prodotto;
+import it.overnet.model.TipoSpedizione;
 
 public class AcquistoDaoImpl implements AcquistoDao {
 	
@@ -52,7 +53,14 @@ public class AcquistoDaoImpl implements AcquistoDao {
 				while(rs.next()){
 					Acquisto acquisto = new Acquisto();
 					acquisto.setId(rs.getInt(1));
-					acquisto.setTipoSpedizione(rs.getString(2).);
+					acquisto.setTipoSpedizione(TipoSpedizione.valueOf(rs.getString(2)));
+					acquisto.setDataInizio(rs.getDate(3).toLocalDate());
+					acquisto.setDataFine(rs.getDate(4).toLocalDate());
+					acquisto.setPrezzoDiSpedizione(rs.getDouble(5));
+					acquisto.setQuantitaAquistata(rs.getInt(6));
+					acquisto.setIdUtente(rs.getInt(7));
+					acquisto.setIdProdotto(rs.getInt(8));
+					listaAcquisti.add(acquisto);
 				}
 		} catch (SQLException e) {
 			e.printStackTrace();
