@@ -104,7 +104,6 @@ data-toggle="popover" title="Attualmente Non Disponibile"
 <% } %>
 >
 
-
 <form action="Aggiungi al carrello" method="get">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
 <input type="submit" value="Agiungi al carrello"
