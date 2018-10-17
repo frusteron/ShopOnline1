@@ -35,6 +35,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 				prodotto.setOfferta(rs.getBoolean(6));
 				prodotto.setSconto(rs.getInt(7));
 				prodotto.setQuantitaDisponibile(rs.getInt(8));
+				prodotto.setImmagine(rs.getString(9));
 				lista.add(prodotto);
 			}
 
@@ -48,7 +49,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllByCategoria(Categoria categoria) {
 		List<Prodotto> listaCategoria = new ArrayList<>();
-		String query = "select * from film where genere = ?";
+		String query = "select * from film where categoria = ?";
 		ResultSet rs = null;
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
 			prepared.setString(1, categoria.toString());
@@ -63,6 +64,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 				prodotto.setOfferta(rs.getBoolean(6));
 				prodotto.setSconto(rs.getInt(7));
 				prodotto.setQuantitaDisponibile(rs.getInt(8));
+				prodotto.setImmagine(rs.getString(9));
 				listaCategoria.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -98,6 +100,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 				prodotto.setOfferta(rs.getBoolean(6));
 				prodotto.setSconto(rs.getInt(7));
 				prodotto.setQuantitaDisponibile(rs.getInt(8));
+				prodotto.setImmagine(rs.getString(9));
 				listaOfferta.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -156,6 +159,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 					prodotto.setOfferta(rs.getBoolean(6));
 					prodotto.setSconto(rs.getInt(7));
 					prodotto.setQuantitaDisponibile(rs.getInt(8));
+					prodotto.setImmagine(rs.getString(9));
 					listaProdotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -167,10 +171,30 @@ public class ProdottoDaoImpl implements ProdottoDao {
 
 	@Override
 	public List<Prodotto> getAllProdottiOrdinati() {
+		List<Prodotto> listaProdotti = new ArrayList<>();
+		String query = "select * from prodotto inner join acquisto on p.id_prodotto = a.id_prodotto "
+				+ "where data_fine >= sysdate";
+		try(Statement statement = connection.createStatement();
+				ResultSet rs = statement.executeQuery(query)){
+			while (rs.next()) {
+				  Prodotto prodotto = new Prodotto();
+					prodotto.setId(rs.getInt(1));
+					prodotto.setNome(rs.getString(2));
+					prodotto.setCategoria(Categoria.valueOf(rs.getString(3)));
+					prodotto.setMarca(rs.getString(4));
+					prodotto.setPrezzo(rs.getDouble(5));
+					prodotto.setOfferta(rs.getBoolean(6));
+					prodotto.setSconto(rs.getInt(7));
+					prodotto.setQuantitaDisponibile(rs.getInt(8));
+					prodotto.setImmagine(rs.getString(9));
+					listaProdotti.add(prodotto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
-		return null;
+		return listaProdotti;
 	}
-
 
 	}
 		
