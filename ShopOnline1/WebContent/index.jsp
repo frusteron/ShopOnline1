@@ -50,7 +50,7 @@
     </ul>
   </div>
 </nav>
-<!--  CAROUSEL -->
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -58,28 +58,23 @@
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
-  
+
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="img/slide1.jpg" class="img-carousel" >
-    </div>
-
-    <div class="item">
-      <img src="img/adidas.jpg" class="img-carousel">
+      <img src="img/adidas.jpg" class="img-carousel" >
     </div>
 
     <div class="item">
       <img src="img/diesel.jpg" class="img-carousel">
     </div>
-     <div class="item">
+
+    <div class="item">
       <img src="img/diesel2.jpg" class="img-carousel">
     </div>
-     <div class="item">
-      <img src="img/diesel.jpg" class="img-carousel">
-    </div>
+    
   </div>
-  
+
   <!-- Left and right controls -->
   <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
@@ -87,6 +82,7 @@
   <a class="right carousel-control" href="#myCarousel" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
+</div>
 
 
 </body>
