@@ -37,7 +37,7 @@
             <li><a href="listaOfferta">Lista Offerta</a>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="">
-        Generi
+        Categorie
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
        <li><a href="listaCategoria?categoria=SCARPE">SCARPE</a></li>
