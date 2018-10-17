@@ -68,8 +68,8 @@
 <div class="form-group">
 <span class="col-lg-4"></span>
 <div class="col-lg-5">
-<input type="submit" value="Login " class="btn btn-primary">
-<input type="reset" value="Ripristina" class="btn btn-primary">
+<input type="submit" value="Login " class="btn btn-success">
+<input type="reset" value="Ripristina" class="btn btn-danger">
 </div>
 <span class="col-lg-3"></span>
 </div>
