@@ -12,8 +12,6 @@ public interface ProdottoDao {
 	
 	public List<Prodotto> getAllByCategoria(Categoria categoria);
 	
-	public List<Prodotto> getByUtenteInCorso(int idUtente);
-	
 	public void updateQuantita(int idProdotto);
 	
 	public void close();

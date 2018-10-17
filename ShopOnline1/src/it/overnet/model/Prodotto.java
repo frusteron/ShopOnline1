@@ -6,6 +6,14 @@ public class Prodotto {
 	private String nome;
 	private Categoria categoria;
 	private String marca;
+	private double prezzo;
+	
+	public double getPrezzo() {
+		return prezzo;
+	}
+	public void setPrezzo(double prezzo) {
+		this.prezzo = prezzo;
+	}
 	private boolean offerta;
 	private int sconto;
 	private int quantitaDisponibile;
