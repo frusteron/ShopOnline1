@@ -1,5 +1,7 @@
 package it.overnet.controller;
 
-public class ListaProdotti {
+import javax.servlet.http.HttpServlet;
+
+public class ListaProdotti extends HttpServlet {
 
 }
