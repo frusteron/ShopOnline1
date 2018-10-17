@@ -142,8 +142,27 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllProdottiAcquistati() {
 		List<Prodotto> listaProdotti = new ArrayList<>();
-		String query = "select * from prodotto  inner join acquisto"
-		return null;
+		String query = "select * from prodotto inner join acquisto on p.id_prodotto = a.id_prodotto "
+				+ "where data_fine < sysdate";
+		try(Statement statement = connection.createStatement();
+				ResultSet rs = statement.executeQuery(query)){
+			while (rs.next()) {
+				  Prodotto prodotto = new Prodotto();
+					prodotto.setId(rs.getInt(1));
+					prodotto.setNome(rs.getString(2));
+					prodotto.setCategoria(Categoria.valueOf(rs.getString(3)));
+					prodotto.setMarca(rs.getString(4));
+					prodotto.setPrezzo(rs.getDouble(5));
+					prodotto.setOfferta(rs.getBoolean(6));
+					prodotto.setSconto(rs.getInt(7));
+					prodotto.setQuantitaDisponibile(rs.getInt(8));
+					listaProdotti.add(prodotto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return listaProdotti;
 	}
 
 	@Override
