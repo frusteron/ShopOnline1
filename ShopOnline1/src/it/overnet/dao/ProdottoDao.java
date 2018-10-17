@@ -12,6 +12,8 @@ public interface ProdottoDao {
 	
 	public List<Prodotto> getAllByCategoria(Categoria categoria);
 	
+	public List<Prodotto> getAllInOfferta(boolean offerta);
+	
 	public void updateQuantita(int idProdotto);
 	
 	public void close();
