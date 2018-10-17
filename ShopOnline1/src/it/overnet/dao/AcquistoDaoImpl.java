@@ -1,19 +1,37 @@
 package it.overnet.dao;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import it.overnet.connection.DBConnection;
 import it.overnet.model.Acquisto;
 
 public class AcquistoDaoImpl implements AcquistoDao {
+	
+	private Connection connection;
+
+	public AcquistoDaoImpl() {
+		connection = DBConnection.getConnection();
+	}
 
 	@Override
 	public void acquista(Acquisto acquisto) {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
 	@Override
 	public void close() {
-		// TODO Auto-generated method stub
+		if (connection != null) {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+		
 		
 	}
 
-}
+
