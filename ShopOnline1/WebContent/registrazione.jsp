@@ -92,6 +92,14 @@
 </div>
 
 <div class="form-group">
+<label for="indirizzo" class="control-label col-lg-4">Indirizzo</label>
+<div class="col-lg-5">
+<input type="text" name="indirizzo" id="indirizzo" class="form-control">
+</div>
+<span class="col-lg-3"></span>
+</div>
+
+<div class="form-group">
 <span class="col-lg-4"></span>
 <div class="col-lg-5">
 <input type="submit" value="Registrati" class="btn btn-success">
