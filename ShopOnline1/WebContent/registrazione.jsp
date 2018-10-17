@@ -95,7 +95,7 @@
 <span class="col-lg-4"></span>
 <div class="col-lg-5">
 <input type="submit" value="Registrati" class="btn btn-success">
-<input type="reset" value="Ripristina" class="btn btn-warning">
+<input type="reset" value="Ripristina" class="btn btn-danger">
 </div>
 <span class="col-lg-3"></span>
 </div>
