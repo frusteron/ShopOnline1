@@ -8,7 +8,7 @@ public class Acquisto {
 	private TipoSpedizione tipoSpedizione;
 	private LocalDate dataInizio;
 	private LocalDate dataFine;
-	private String prezzoDiSpedizione;
+	private double prezzoDiSpedizione;
 	private int  quantitaAquistata;
 	private int idUtente;
 	private int idProdotto;
@@ -36,10 +36,12 @@ public class Acquisto {
 	public void setDataFine(LocalDate dataFine) {
 		this.dataFine = dataFine;
 	}
-	public String getPrezzoDiSpedizione() {
+	
+	
+	public double getPrezzoDiSpedizione() {
 		return prezzoDiSpedizione;
 	}
-	public void setPrezzoDiSpedizione(String prezzoDiSpedizione) {
+	public void setPrezzoDiSpedizione(double prezzoDiSpedizione) {
 		this.prezzoDiSpedizione = prezzoDiSpedizione;
 	}
 	public int getQuantitaAquistata() {
