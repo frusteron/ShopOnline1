@@ -35,6 +35,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 				prodotto.setOfferta(rs.getBoolean(6));
 				prodotto.setSconto(rs.getInt(7));
 				prodotto.setQuantitaDisponibile(rs.getInt(8));
+				prodotto.setImmagine(rs.getString(9));
 				lista.add(prodotto);
 			}
 
@@ -48,7 +49,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllByCategoria(Categoria categoria) {
 		List<Prodotto> listaCategoria = new ArrayList<>();
-		String query = "select * from film where genere = ?";
+		String query = "select * from film where categoria = ?";
 		ResultSet rs = null;
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
 			prepared.setString(1, categoria.toString());
@@ -63,6 +64,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 				prodotto.setOfferta(rs.getBoolean(6));
 				prodotto.setSconto(rs.getInt(7));
 				prodotto.setQuantitaDisponibile(rs.getInt(8));
+				prodotto.setImmagine(rs.getString(9));
 				listaCategoria.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -98,6 +100,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 				prodotto.setOfferta(rs.getBoolean(6));
 				prodotto.setSconto(rs.getInt(7));
 				prodotto.setQuantitaDisponibile(rs.getInt(8));
+				prodotto.setImmagine(rs.getString(9));
 				listaOfferta.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -156,6 +159,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 					prodotto.setOfferta(rs.getBoolean(6));
 					prodotto.setSconto(rs.getInt(7));
 					prodotto.setQuantitaDisponibile(rs.getInt(8));
+					prodotto.setImmagine(rs.getString(9));
 					listaProdotti.add(prodotto);
 			}
 		} catch (SQLException e) {
@@ -182,6 +186,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 					prodotto.setOfferta(rs.getBoolean(6));
 					prodotto.setSconto(rs.getInt(7));
 					prodotto.setQuantitaDisponibile(rs.getInt(8));
+					prodotto.setImmagine(rs.getString(9));
 					listaProdotti.add(prodotto);
 			}
 		} catch (SQLException e) {

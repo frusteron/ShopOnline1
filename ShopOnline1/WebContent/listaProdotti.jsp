@@ -59,6 +59,75 @@ request.getAttribute("listaProdotti");%>
 <h1>LISTA PRODOTTI</h1>
 </div>
 
+<!-- base pagina -->
+<div class="container">
+<table class="table table-hover">
+<thead>
+<th>Nome</th>
+<th>Marca 
+<a href="ordina?sort=regista">
+<span class="glyphicon glyphicon-sort-by-alphabet">
+</span></a></th>
+<th>Prezzo <a href="ordina?sort=quantita">
+<span class="glyphicon glyphicon-sort-by-order">
+</span></a></th>
+<th>Quantita Disponibile <a href="ordina?sort=quantita">
+<span class="glyphicon glyphicon-sort-by-order">
+</span></a>
+</th>
+<th>Immagine</th>
+</thead>
+
+<!-- lista prodotti effettiva -->
+<tbody>
+<% for (Prodotto prodotto : listaProdotti) { %>
+<tr>
+<td><%=prodotto.getNome() %> </td>
+<td><%=prodotto.getMarca() %> </td>
+<td><%=prodotto.getPrezzo() %> </td>
+<td><%=prodotto.getQuantitaDisponibile() %> </td>
+<td><img src="<%=prodotto.getImmagine() %>"> </td>
+<td>
+<form action="Acquista" method="get">
+<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
+<input type="submit" value="Acquista"
+<% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
+class="btn btn-warning disabled" onclick="return false"
+<% } else { %>
+class="btn btn-warning"
+<% } %>
+<% if (utente == null) { %>
+data-toggle="popover" title="Fai<br>la</br>Login"
+<% } %>
+<% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
+data-toggle="popover" title="Attualmente Non Disponibile"
+<% } %>
+>
+
+
+<form action="Aggiungi al carrello" method="get">
+<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
+<input type="submit" value="Agiungi al carrello"
+<% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
+class="btn btn-warning disabled" onclick="return false"
+<% } else { %>
+class="btn btn-warning"
+<% } %>
+<% if (utente == null) { %>
+data-toggle="popover" title="Fai<br>la</br>Login"
+<% } %>
+<% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
+data-toggle="popover" title="Attualmente Non Disponibile"
+<% } %>
+>
+</form>
+</td>
+</tr>
+<%}%>
+
+</tbody>
+</table>
+</div>
 
 
 </body>

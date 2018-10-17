@@ -12,6 +12,14 @@
 	margin-left: -30px;
 	width: 50% !important;
 }
+<<<<<<< HEAD
 .search {
 	float: right !important;
 }
+=======
+td > img {
+	width: 40px;
+	height: 40px;
+}
+
+>>>>>>> branch 'master' of https://github.com/frusteron/ShopOnline1.git
