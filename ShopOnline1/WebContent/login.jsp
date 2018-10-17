@@ -17,8 +17,89 @@
 
 <% Utente utente = (Utente) session.getAttribute ("utenteLoggato"); %>
 
-</head>
-<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/Shop">Shop</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/Shop">Home</a></li>
+      <% if (utente == null) { %>
+      <li><a href="registrazione.jsp">Registrazione</a></li>
+      <li><a href="login.jsp">Login</a></li>
+      <% } %>
+        </ul>
+      </li>
+  </div>
+  </nav>
+  
+  
+  <!-- chiusura navbar -->
+<!-- intestazione -->
+<div class="page-header text-center"> <!-- page-header o jumbotron -->
+<h1>Login</h1>
+</div>
+
+<!--  form registrazione -->
+<form action="login" method="post" class="form-horizontal" onsubmit="return validazioneLogin()">
+<div class="form-group">
+</div>
+
+
+<!-- BARRE USENAME E PASSWORD -->
+<div class="form-group">
+<label for="username" class="control-label col-lg-4">Inserisci Username</label>
+<div class="col-lg-5">
+<input type="text" name="username" id="username" class="form-control">
+</div>
+<span class="col-lg-3"></span>
+</div>
+
+<div class="form-group">
+<label for="password" class="control-label col-lg-4">Inserisci Password</label>
+<div class="col-lg-5">
+<input type="password" name="password" id="password" class="form-control">
+</div>
+<span class="col-lg-3"></span>
+</div>
+
+
+<!-- BOTTONI -->
+<div class="form-group">
+<span class="col-lg-4"></span>
+<div class="col-lg-5">
+<input type="submit" value="Login " class="btn btn-success">
+<input type="reset" value="Ripristina" class="btn btn-danger">
+</div>
+<span class="col-lg-3"></span>
+</div>
+</form>
+
+
+<div class="alert alert-danger" id="alert" style="display: none" >
+<p class="text-center">NON HAI RISPETTATO I CAMPI DEL FORM</p>
+</div>
+<%if (request.getAttribute("login") != null) {%>
+<% boolean controllo = (boolean) request.getAttribute("login");%>
+
+<!--  LOGIN GIUSTO E LOGIN ERRATO -->
+<% if ((boolean)request.getAttribute("login")) { %>
+<div class="alert alert-success" >
+<p class="text-center">Login avvenuta con successo</p>
+</div>
+<%}else if (!(boolean)request.getAttribute("login")) {%>
+<div class="alert alert-danger">
+<p class="text-center">Username o Password sbagliati </p> 
+</div>
+
+<% } %>
+<% } %>
+
+
+
+
+
+
 
 </body>
 </html>
