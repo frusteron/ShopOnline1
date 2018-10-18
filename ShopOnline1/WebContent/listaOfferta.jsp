@@ -68,11 +68,14 @@
 <th>Prezzo <a href="ordina?sort=quantita">
 <span class="glyphicon glyphicon-sort-by-order">
 </span></a></th>
+<th>Sconto</th>
+<th>Prezzo Scontato</th>
 <th>Quantita Disponibile <a href="ordina?sort=quantita">
 <span class="glyphicon glyphicon-sort-by-order">
 </span></a>
 </th>
 <th>Immagine</th>
+
 </thead>
 
 <!-- lista prodotti effettiva -->
@@ -82,6 +85,9 @@
 <td><%=prodotto.getNome() %> </td>
 <td><%=prodotto.getMarca() %> </td>
 <td><%=prodotto.getPrezzo() %> </td>
+<td><%=prodotto.getSconto() %> </td>
+
+
 <td><%=prodotto.getQuantitaDisponibile() %> </td>
 <td><img src="<%=prodotto.getImmagine() %>"> </td>
 <td>
