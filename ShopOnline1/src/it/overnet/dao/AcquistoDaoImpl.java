@@ -69,8 +69,26 @@ public class AcquistoDaoImpl implements AcquistoDao {
 	}
 	@Override
 	public List<Acquisto> getAllOrdini() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Acquisto> listaAcquisti = new ArrayList<>();
+		String query = "select * from acquisto where data_fine > sysdate";
+		try(Statement statement = connection.createStatement();
+				ResultSet rs = statement.executeQuery(query)){
+				while(rs.next()){
+					Acquisto acquisto = new Acquisto();
+					acquisto.setId(rs.getInt(1));
+					acquisto.setTipoSpedizione(TipoSpedizione.valueOf(rs.getString(2)));
+					acquisto.setDataInizio(rs.getDate(3).toLocalDate());
+					acquisto.setDataFine(rs.getDate(4).toLocalDate());
+					acquisto.setPrezzoDiSpedizione(rs.getDouble(5));
+					acquisto.setQuantitaAquistata(rs.getInt(6));
+					acquisto.setIdUtente(rs.getInt(7));
+					acquisto.setIdProdotto(rs.getInt(8));
+					listaAcquisti.add(acquisto);
+				}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return listaAcquisti;
 	}
 	
 	@Override
