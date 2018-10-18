@@ -12,9 +12,9 @@ public interface ProdottoDao {
 	
 	public List<Prodotto> getAllByCategoria(Categoria categoria);
 	
-	public List<Prodotto> getAllProdottiAcquistati();
+	public List<Prodotto> getAllProdottiAcquistati(int idUtente);
 	
-	public List<Prodotto> getAllProdottiOrdinati();
+	public List<Prodotto> getAllProdottiOrdinati(int idUtente);
 	
 	public List<Prodotto> getAllInOfferta();
 	
