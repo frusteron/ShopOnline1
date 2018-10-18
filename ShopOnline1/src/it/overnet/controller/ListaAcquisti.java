@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import it.overnet.dao.AcquistoDaoImpl;
+import it.overnet.dao.ProdottoDaoImpl;
 import it.overnet.model.Acquisto;
+import it.overnet.model.Prodotto;
 import it.overnet.model.Utente;
 
 public class ListaAcquisti extends HttpServlet{
@@ -21,10 +23,10 @@ public class ListaAcquisti extends HttpServlet{
 		HttpSession sessione = req.getSession();
 		Utente utente = (Utente) sessione.getAttribute("utenteLoggato");
 		int idUtente = utente.getId();
-		AcquistoDaoImpl acquistoDao = new AcquistoDaoImpl();
-		List<Acquisto> listaAcquisti = acquistoDao.getAllAcquisti(idUtente);
-		acquistoDao.close();
-		req.setAttribute("listaAcquisti", listaAcquisti);
+		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
+		List<Prodotto> listaAcquisti = prodottoDao.getAllProdottiOrdinati(idUtente);
+		prodottoDao.close();
+		req.setAttribute("listaOrdini", listaAcquisti);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("listaAcquisti.jsp");
 		dispatcher.forward(req, resp);
 		
