@@ -71,7 +71,7 @@
 <div class="page-header text-center"> <!-- page-header o jumbotron -->
 <h1>CARRELLO</h1>
 </div>
-
+<% if (carrello != null) { %>
 <div class="container">
 <table class="table table-hover">
 <thead>
@@ -97,11 +97,16 @@
 </form>
 </td>
 </tr>
-<%}%>
+<% } %>
 </tbody>
 </table>
 </div>
+<% } else { %>
+<div class="alert alert-danger">
+<p class="text-center">Nessun prodotto aggiunto al carrello</p>
+</div>
 
+<% } %>
 
 
 </body>
