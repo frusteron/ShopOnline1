@@ -49,7 +49,15 @@
           <li><a href="listaCategoria?categoria=ACCESSORI">ACCESSORI</a></li>
         </ul>
       </li>
+      
+      
+      
+     
     </ul>
+      <form class="navbar-form navbar-left search" action="">
+      <button><img src="img/carrello8.png"></button>
+    </form> 
+    
     
      <form class="navbar-form navbar-left search" action="">
       <div class="form-group" >
