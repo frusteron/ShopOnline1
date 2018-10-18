@@ -18,9 +18,12 @@ public class ListaOfferta extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
+	Prodotto prodotto = new Prodotto();
+	double prezzoTotale = prodotto.getPrezzo() - ( prodotto.getPrezzo()* prodotto.getSconto()/100);
 	List<Prodotto> listaOfferta = prodottoDao.getAllInOfferta();
 	System.out.println("n prodotti : " + listaOfferta.size());
 	prodottoDao.close();
+	req.setAttribute("prezzoTotale", prezzoTotale);
 	req.setAttribute("listaOfferta", listaOfferta);
 	RequestDispatcher dispatcher = req.getRequestDispatcher("listaOfferta.jsp");
 	dispatcher.forward(req, resp);
