@@ -53,7 +53,7 @@
         <!-- chiusura navbar -->
 <!-- intestazione -->
 <div class="page-header text-center"> <!-- page-header o jumbotron -->
-<h1>LISTA PRODOTTI</h1>
+<h1>LISTA PRODOTTI IN OFFERTA</h1>
 </div>
 
 <!-- base pagina -->
