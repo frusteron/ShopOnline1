@@ -62,7 +62,25 @@ request.getAttribute("listaProdotto");%>
   </div>
 </nav>
 
-<!-- lista prodotti effettiva -->
+<!-- lista prodotti effettiva --><!-- base pagina -->
+<%if(listaProdotti != null) { %>
+<div class="container">
+<table class="table table-hover">
+<thead>
+<th>Nome</th>
+<th>Marca 
+<a href="ordina?sort=marca">
+<span class="glyphicon glyphicon-sort-by-alphabet">
+</span></a></th>
+<th>Prezzo <a href="ordina?sort=prezzo">
+<span class="glyphicon glyphicon-sort-by-order">
+</span></a></th>
+<th>Quantita Disponibile <a href="ordina?sort=quantita">
+<span class="glyphicon glyphicon-sort-by-order">
+</span></a>
+</th>
+<th>Immagine</th>
+</thead>
 <tbody>
 <% for (Prodotto prodotto : listaProdotti) { %>
 <tr>
@@ -87,13 +105,33 @@ data-toggle="popover" title="Fai<br>la</br>Login"
 data-toggle="popover" title="Attualmente Non Disponibile"
 <% } %>
 >
-<% } %>
 </form>
 
+<form action="carrello" method="get">
+<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
+<input type="submit" value="Agiungi al carrello"
+<% if (prodotto.getQuantitaDisponibile() < 1){ %>
+class="btn btn-warning disabled" onclick="return false"
+data-toggle="popover" title="Attualmente Non Disponibile"
+<% } else { %>
+class="btn btn-warning"
+<% } %>
+>
+</form>
+</td>
 
+</tr>
+<%}%>
 
+</tbody>
+</table>
+</div>
 
-
+<%} else {%>
+<div class="alert alert-danger">
+<p class="text-center">Nessun Prodotto Trovato </p> 
+</div>
+<% } %>
 
 
 
