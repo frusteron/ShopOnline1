@@ -16,7 +16,7 @@
 <body>
 
 <% Utente utente = (Utente) session.getAttribute ("utenteLoggato");  %>
-<% List<Prodotto> listaProdotti = (List<Prodotto>)
+<% List<Prodotto> listaOrdini = (List<Prodotto>)
 request.getAttribute("listaOrdini");%>
 
 
@@ -71,7 +71,7 @@ request.getAttribute("listaOrdini");%>
 <th>Reso</th>
 </thead>
 <tbody>
-<% for (Prodotto prodotto : listaProdotti) { %>
+<% for (Prodotto prodotto : listaOrdini) { %>
 <tr>
 <td><%=prodotto.getNome() %> </td>
 <td><%=prodotto.getCategoria() %> </td>
