@@ -40,4 +40,41 @@
   <servlet-name>ListaProdotti</servlet-name>
   <url-pattern>/listaProdotti</url-pattern>
   </servlet-mapping>
+  
+  <!-- ListaOfferta -->
+  <servlet>
+  <servlet-name>ListaOfferta</servlet-name>
+  <servlet-class>it.overnet.controller.ListaOfferta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ListaOfferta</servlet-name>
+  <url-pattern>/listaOfferta</url-pattern>
+  </servlet-mapping>
+  <!-- ListaOrdini -->
+  <servlet>
+  <servlet-name>ListaOrdini</servlet-name>
+  <servlet-class>it.overnet.controller.ListaOrdini</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ListaOrdini</servlet-name>
+  <url-pattern>/listaOrdini</url-pattern>
+  </servlet-mapping>
+  <!-- ListaCategorie -->
+  <servlet>
+  <servlet-name>ListaCategorie</servlet-name>
+  <servlet-class>it.overnet.controller.ListaCategorie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ListaCategorie</servlet-name>
+  <url-pattern>/listaCategorie</url-pattern>
+  </servlet-mapping>
+  <!-- ListaAquisti -->
+  <servlet>
+  <servlet-name>ListaAquisti</servlet-name>
+  <servlet-class>it.overnet.controller.ListaAquisti</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>ListaAquisti</servlet-name>
+  <url-pattern>/listaAquisti</url-pattern>
+  </servlet-mapping>
 </web-app>
