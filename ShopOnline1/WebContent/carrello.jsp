@@ -1,6 +1,5 @@
-<%@page import="java.util.HashSet"%>
 <%@page import="it.overnet.model.Prodotto" %>
-<%@page import="java.util.List"%>
+<%@page import="java.util.HashSet"%>
 <%@page import="it.overnet.model.Utente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -51,6 +50,10 @@
         </ul>
       </li>
     </ul>
+    
+     <form class="navbar-form navbar-left search" action="" style="margin: 0px;">
+      <button class=" bottone-carrello"><img src="img/carrello8.png"></button>
+    </form> 
     
      <form class="navbar-form navbar-left search" action="">
       <div class="form-group" >
