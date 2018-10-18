@@ -49,7 +49,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllByCategoria(Categoria categoria) {
 		List<Prodotto> listaCategoria = new ArrayList<>();
-		String query = "select * from film where categoria = ?";
+		String query = "select * from prodotto where categoria = ?";
 		ResultSet rs = null;
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
 			prepared.setString(1, categoria.toString());
