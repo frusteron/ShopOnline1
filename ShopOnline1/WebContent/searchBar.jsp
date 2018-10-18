@@ -18,7 +18,7 @@
 <body>
 <% Utente utente = (Utente) session.getAttribute ("utenteLoggato");  %>
 <% List<Prodotto> listaProdotti = (List<Prodotto>)
-request.getAttribute("listaProdotti");%>
+request.getAttribute("listaProdotto");%>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -52,7 +52,7 @@ request.getAttribute("listaProdotti");%>
       </li>
     </ul>
     
-     <form class="navbar-form navbar-left search" action="">
+     <form class="navbar-form navbar-left search" action="search">
       <div class="form-group" >
         <input type="text" class="form-control" placeholder="Cerca" name="search">
       </div>
@@ -61,5 +61,47 @@ request.getAttribute("listaProdotti");%>
     
   </div>
 </nav>
+
+<!-- lista prodotti effettiva -->
+<tbody>
+<% for (Prodotto prodotto : listaProdotti) { %>
+<tr>
+<td><%=prodotto.getNome() %> </td>
+<td><%=prodotto.getMarca() %> </td>
+<td><%=prodotto.getPrezzo() %> </td>
+<td><%=prodotto.getQuantitaDisponibile() %> </td>
+<td><img src="<%=prodotto.getImmagine() %>"> </td>
+<td>
+<form action="acquista.jsp" method="get">
+<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
+<input type="submit" value="Acquista"
+<% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
+class="btn btn-warning disabled" onclick="return false"
+<% } else { %>
+class="btn btn-warning"
+<% } %>
+<% if (utente == null) { %>
+data-toggle="popover" title="Fai<br>la</br>Login"
+<% } %>
+<% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
+data-toggle="popover" title="Attualmente Non Disponibile"
+<% } %>
+>
+<% } %>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
