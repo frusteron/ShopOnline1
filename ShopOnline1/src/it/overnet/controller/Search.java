@@ -16,11 +16,12 @@ public class Search extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String nome = req.getParameter("nome");
+		String nome = req.getParameter("search");
 		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
 		List<Prodotto> listaProdotto = prodottoDao.getProdottoByNomeOMarca(nome);
 		prodottoDao.close();
 		req.setAttribute("listaProdotto", listaProdotto);
+		System.out.println(listaProdotto.size());
 		RequestDispatcher dispatcher = req.getRequestDispatcher("searchBar.jsp");
 		dispatcher.forward(req, resp);
 		

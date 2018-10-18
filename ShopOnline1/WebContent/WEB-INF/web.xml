@@ -94,10 +94,23 @@
   <servlet-mapping>
   <servlet-name>Carrello</servlet-name>
   <url-pattern>/carrello</url-pattern>
-  
-  
-  
-  
-  
+    </servlet-mapping>
+   <!-- SearchBar -->
+  <servlet>
+  <servlet-name>Search</servlet-name>
+  <servlet-class>it.overnet.controller.Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Search</servlet-name>
+  <url-pattern>/search</url-pattern>
+  </servlet-mapping>
+   <!-- Acquista -->
+  <servlet>
+  <servlet-name>Acquista</servlet-name>
+  <servlet-class>it.overnet.controller.Acquista</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Acquista</servlet-name>
+  <url-pattern>/acquista</url-pattern>
   </servlet-mapping>
 </web-app>
