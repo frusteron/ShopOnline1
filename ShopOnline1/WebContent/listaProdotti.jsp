@@ -52,6 +52,10 @@ request.getAttribute("listaProdotti");%>
       </li>
     </ul>
     
+     <form class="navbar-form navbar-left search" action="" style="margin: 0px;">
+      <button class=" bottone-carrello"><img src="img/carrello8.png"></button>
+    </form> 
+    
      <form class="navbar-form navbar-left search" action="">
       <div class="form-group" >
         <input type="text" class="form-control" placeholder="Cerca" name="search">
