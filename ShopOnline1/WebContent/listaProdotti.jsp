@@ -65,10 +65,10 @@ request.getAttribute("listaProdotti");%>
 <thead>
 <th>Nome</th>
 <th>Marca 
-<a href="ordina?sort=regista">
+<a href="ordina?sort=marca">
 <span class="glyphicon glyphicon-sort-by-alphabet">
 </span></a></th>
-<th>Prezzo <a href="ordina?sort=quantita">
+<th>Prezzo <a href="ordina?sort=prezzo">
 <span class="glyphicon glyphicon-sort-by-order">
 </span></a></th>
 <th>Quantita Disponibile <a href="ordina?sort=quantita">

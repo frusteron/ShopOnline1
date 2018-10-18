@@ -77,4 +77,13 @@
   <servlet-name>ListaAquisti</servlet-name>
   <url-pattern>/listaAquisti</url-pattern>
   </servlet-mapping>
+    <!-- Ordina -->
+  <servlet>
+  <servlet-name>Ordina</servlet-name>
+  <servlet-class>it.overnet.controller.Ordina</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Ordina</servlet-name>
+  <url-pattern>/ordina</url-pattern>
+  </servlet-mapping>
 </web-app>

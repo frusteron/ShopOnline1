@@ -68,7 +68,6 @@ request.getAttribute("listaOrdini");%>
 <th>Marca</th>
 <th>Prezzo</th>
 <th>Immagine</th>
-<th>Reso</th>
 </thead>
 <tbody>
 <% for (Prodotto prodotto : listaOrdini) { %>
