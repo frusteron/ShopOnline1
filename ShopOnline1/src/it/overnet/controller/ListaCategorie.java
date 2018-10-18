@@ -24,7 +24,7 @@ public class ListaCategorie extends HttpServlet {
 		System.out.println("n prodotti : " + listaCategoria.size());
 		prodottoDao.close();
 		req.setAttribute("listaCategoria", listaCategoria);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("listaCategoria.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("listaCategorie.jsp");
 		dispatcher.forward(req, resp);
 	}
 	

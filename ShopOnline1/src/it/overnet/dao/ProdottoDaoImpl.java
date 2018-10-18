@@ -84,14 +84,12 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllInOfferta() {
 		List<Prodotto> listaOfferta = new ArrayList<>();
-		Prodotto prodotto = null;
-		String query = "select * from prodotto where offerta = ?";
+		String query = "select * from prodotto where offerta = 0";
 		ResultSet rs = null;
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
-			prepared.setBoolean(1,prodotto.isOfferta());
 			rs = prepared.executeQuery();
 			while (rs.next()) {
-			   prodotto = new Prodotto();
+			  Prodotto prodotto = new Prodotto();
 				prodotto.setId(rs.getInt(1));
 				prodotto.setNome(rs.getString(2));
 				prodotto.setCategoria(Categoria.valueOf(rs.getString(3)));
