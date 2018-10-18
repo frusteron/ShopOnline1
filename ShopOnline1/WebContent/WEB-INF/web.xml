@@ -61,21 +61,21 @@
   </servlet-mapping>
   <!-- ListaCategorie -->
   <servlet>
-  <servlet-name>ListaCategorie</servlet-name>
+  <servlet-name>ListaCategoria</servlet-name>
   <servlet-class>it.overnet.controller.ListaCategorie</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>ListaCategorie</servlet-name>
-  <url-pattern>/listaCategorie</url-pattern>
+  <servlet-name>ListaCategoria</servlet-name>
+  <url-pattern>/listaCategoria</url-pattern>
   </servlet-mapping>
-  <!-- ListaAquisti -->
+  <!-- ListaAcquisti -->
   <servlet>
-  <servlet-name>ListaAquisti</servlet-name>
-  <servlet-class>it.overnet.controller.ListaAquisti</servlet-class>
+  <servlet-name>ListaAcquisti</servlet-name>
+  <servlet-class>it.overnet.controller.ListaAcquisti</servlet-class>
   </servlet>
   <servlet-mapping>
-  <servlet-name>ListaAquisti</servlet-name>
-  <url-pattern>/listaAquisti</url-pattern>
+  <servlet-name>ListaAcquisti</servlet-name>
+  <url-pattern>/listaAcquisti</url-pattern>
   </servlet-mapping>
     <!-- Ordina -->
   <servlet>
