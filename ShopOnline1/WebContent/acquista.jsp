@@ -8,24 +8,20 @@
 <title>Acquista</title>
 </head>
 <body>
-<%Prodotto prodotto = (Prodotto)request.getAttribute("idProdotto"); %>
+<%Prodotto prodotto = (Prodotto)request.getAttribute("idProdotto");%>
 <label>Seleziona Tipo di Spedizione</label>
 <div>
 <form action="Acquista" method="get">
+<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
+<input>
 <input type="radio" name="tipoSpedizione" value="PREMIUM" checked>Premium
 <br>
 <input type="radio" name="tipoSpedizione" value="ORDINARIA">Ordinaria
 <br>
 <input type="radio" name="tipoSpedizione" value="LUNGO_TERMINE">Lungo Termine
 </div>
-<label>Insrerisci data inizio</label>
-<input type="date" name="dataInizio">
-<br>
-<label>Insrerisci data fine</label>
-<input type="date" name="dataFine">
-
+<label>Inserisci quantità</label>
+<input type="number" name ="quantitaAcquistata" min="1" max ="10">
 </form>
 </body>
 </html>
-
-<!--  tipo di spedizione, data inizio, data arrivo, prezzo di spedizione, quantità acquistata -->
