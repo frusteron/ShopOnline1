@@ -20,5 +20,7 @@ public interface ProdottoDao {
 	
 	public void updateQuantita(int idProdotto,int quantità);
 	
+	public Prodotto getProdottoById(int id);
+	
 	public void close();
 }
