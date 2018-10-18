@@ -21,7 +21,7 @@
 <% Utente utente =
 (Utente) session.getAttribute("utenteLoggato"); %>
 <% List<Prodotto> listaCategorie = (List<Prodotto>)
-request.getAttribute("listaCategorie"); %>
+request.getAttribute("listaCategoria"); %>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
