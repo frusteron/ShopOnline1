@@ -1,3 +1,4 @@
+<%@page import="it.overnet.model.Utente"%>
 <%@page import="it.overnet.model.Prodotto"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -8,24 +9,25 @@
 <title>Acquista</title>
 </head>
 <body>
-<%Prodotto prodotto = (Prodotto)request.getAttribute("idProdotto"); %>
+<%int idProdotto = (int)Integer.parseInt(request.getParameter("idProdotto"));%>
+<% Utente utente = (Utente) session.getAttribute ("utenteLoggato");  %>
+
 <label>Seleziona Tipo di Spedizione</label>
 <div>
-<form action="Acquista" method="get">
+<form action="acquista" method="get">
+<input type="hidden" name="idProdotto" value="<%= idProdotto%>">
+<br>
 <input type="radio" name="tipoSpedizione" value="PREMIUM" checked>Premium
 <br>
 <input type="radio" name="tipoSpedizione" value="ORDINARIA">Ordinaria
 <br>
 <input type="radio" name="tipoSpedizione" value="LUNGO_TERMINE">Lungo Termine
-</div>
-<label>Insrerisci data inizio</label>
-<input type="date" name="dataInizio">
+<label>Inserisci quantità</label>
+<input type="number" name ="quantitaAcquistata" min="1" max ="10">
 <br>
-<label>Insrerisci data fine</label>
-<input type="date" name="dataFine">
-
+<input type="submit" value="Invia">
+<input type="reset" value="Reset">
+</div>
 </form>
 </body>
 </html>
-
-<!--  tipo di spedizione, data inizio, data arrivo, prezzo di spedizione, quantità acquistata -->
