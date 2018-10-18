@@ -16,20 +16,19 @@ import it.overnet.model.Acquisto;
 import it.overnet.model.Prodotto;
 import it.overnet.model.Utente;
 
-public class ListaOrdini extends HttpServlet {
+public class ListaAcquisti extends HttpServlet{
+
 	
-	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		HttpSession sessione = req.getSession();
 		Utente utente = (Utente) sessione.getAttribute("utenteLoggato");
 		int idUtente = utente.getId();
 		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
-		List<Prodotto> listaOrdini = prodottoDao.getAllProdottiOrdinati(idUtente);
+		List<Prodotto> listaAcquisti = prodottoDao.getAllProdottiOrdinati(idUtente);
 		prodottoDao.close();
-		req.setAttribute("listaOrdini", listaOrdini);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("listaOrdini.jsp");
+		req.setAttribute("listaAcquisti", listaAcquisti);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("listaAcquisti.jsp");
 		dispatcher.forward(req, resp);
 		
 	}
-
 }
