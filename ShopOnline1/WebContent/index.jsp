@@ -53,7 +53,7 @@
     
      <form class="navbar-form navbar-left search" action="">
       <div class="form-group" >
-        <input type="text" class="form-control" placeholder="Inserisci Testo" name="search">
+        <input type="text" class="form-control" placeholder="Cerca" name="search">
       </div>
       <button type="submit" class="btn btn-default">Cerca</button>
     </form> 
