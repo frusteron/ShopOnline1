@@ -25,6 +25,7 @@ public class ListaOrdini extends HttpServlet {
 		int idUtente = utente.getId();
 		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
 		List<Prodotto> listaOrdini = prodottoDao.getAllProdottiOrdinati(idUtente);
+		System.out.println(listaOrdini.size());
 		prodottoDao.close();
 		req.setAttribute("listaOrdini", listaOrdini);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("listaOrdini.jsp");

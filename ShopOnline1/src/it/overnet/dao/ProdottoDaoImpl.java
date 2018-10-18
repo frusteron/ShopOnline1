@@ -84,14 +84,12 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllInOfferta() {
 		List<Prodotto> listaOfferta = new ArrayList<>();
-		Prodotto prodotto = null;
-		String query = "select * from prodotto where offerta = ?";
+		String query = "select * from prodotto where offerta = 0";
 		ResultSet rs = null;
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
-			prepared.setBoolean(1,prodotto.isOfferta());
 			rs = prepared.executeQuery();
 			while (rs.next()) {
-			   prodotto = new Prodotto();
+			  Prodotto prodotto = new Prodotto();
 				prodotto.setId(rs.getInt(1));
 				prodotto.setNome(rs.getString(2));
 				prodotto.setCategoria(Categoria.valueOf(rs.getString(3)));
@@ -172,7 +170,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllProdottiOrdinati(int idUtente) {
 		List<Prodotto> listaProdotti = new ArrayList<>();
-		String query = "select * from prodotto inner join acquisto on p.id_prodotto = a.id_prodotto "
+		String query = "select * from prodotto inner join acquisto on prodotto.id_prodotto = acquisto.id_prodotto "
 				+ "where data_fine >= sysdate";
 		try(Statement statement = connection.createStatement();
 				ResultSet rs = statement.executeQuery(query)){
