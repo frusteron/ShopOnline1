@@ -86,8 +86,7 @@
 <td><%=prodotto.getMarca() %> </td>
 <td><%=prodotto.getPrezzo() %> </td>
 <td><%=prodotto.getSconto() %> </td>
-
-
+<td><%=prodotto.getPrezzo()-(prodotto.getPrezzo()*prodotto.getSconto()/100) %></td>
 <td><%=prodotto.getQuantitaDisponibile() %> </td>
 <td><img src="<%=prodotto.getImmagine() %>"> </td>
 <td>
