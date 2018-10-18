@@ -26,7 +26,7 @@ public class ListaAcquisti extends HttpServlet{
 		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
 		List<Prodotto> listaAcquisti = prodottoDao.getAllProdottiOrdinati(idUtente);
 		prodottoDao.close();
-		req.setAttribute("listaOrdini", listaAcquisti);
+		req.setAttribute("listaAcquisti", listaAcquisti);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("listaAcquisti.jsp");
 		dispatcher.forward(req, resp);
 		
