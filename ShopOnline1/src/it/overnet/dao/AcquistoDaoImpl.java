@@ -45,7 +45,7 @@ public class AcquistoDaoImpl implements AcquistoDao {
 	
 
 	@Override
-	public List<Acquisto> getAllAcquisti() {
+	public List<Acquisto> getAllAcquisti(int idUtente) {
 		List<Acquisto> listaAcquisti = new ArrayList<>();
 		String query = "select * from acquisto where data_fine < sysdate";
 		try(Statement statement = connection.createStatement();
@@ -68,7 +68,7 @@ public class AcquistoDaoImpl implements AcquistoDao {
 		return listaAcquisti;
 	}
 	@Override
-	public List<Acquisto> getAllOrdini() {
+	public List<Acquisto> getAllOrdini(int idUtente) {
 		List<Acquisto> listaAcquisti = new ArrayList<>();
 		String query = "select * from acquisto where data_fine > sysdate";
 		try(Statement statement = connection.createStatement();
