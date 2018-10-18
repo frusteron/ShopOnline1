@@ -8,25 +8,29 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import it.overnet.dao.AcquistoDaoImpl;
 import it.overnet.dao.ProdottoDaoImpl;
-import it.overnet.model.Categoria;
+import it.overnet.model.Acquisto;
 import it.overnet.model.Prodotto;
+import it.overnet.model.Utente;
 
-
-public class ListaCategorie extends HttpServlet {
-
+public class ListaOrdini extends HttpServlet {
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String categoriaString = req.getParameter("categoria");
-		Categoria categoria = Categoria.valueOf(categoriaString);
+		HttpSession sessione = req.getSession();
+		Utente utente = (Utente) sessione.getAttribute("utenteLoggato");
+		int idUtente = utente.getId();
 		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
-		List<Prodotto> listaCategoria = prodottoDao.getAllByCategoria(categoria);
-		System.out.println("n prodotti : " + listaCategoria.size());
+		List<Prodotto> listaOrdini = prodottoDao.getAllProdottiOrdinati(idUtente);
+		System.out.println(listaOrdini.size());
 		prodottoDao.close();
-		req.setAttribute("listaCategoria", listaCategoria);
-		RequestDispatcher dispatcher = req.getRequestDispatcher("listaCategoria.jsp");
+		req.setAttribute("listaOrdini", listaOrdini);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("listaOrdini.jsp");
 		dispatcher.forward(req, resp);
+		
 	}
-	
-	
+
 }

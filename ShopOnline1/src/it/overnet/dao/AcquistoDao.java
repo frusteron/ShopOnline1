@@ -10,9 +10,9 @@ public interface AcquistoDao {
 	
 	public void acquista (Acquisto acquisto);
 	
-	public List<Acquisto> getAllAcquisti();
+	public List<Acquisto> getAllAcquisti(int idUtente);
 	
-	public List<Acquisto> getAllOrdini();
+	public List<Acquisto> getAllOrdini(int idUtente);
 	
 	public void close();
 }
