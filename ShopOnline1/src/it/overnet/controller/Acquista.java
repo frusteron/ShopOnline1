@@ -27,8 +27,8 @@ public class Acquista extends HttpServlet {
 		TipoSpedizione tipoSp = TipoSpedizione.valueOf(req.getParameter("tipoSpedizione"));
 		LocalDate dataInizio = LocalDate.now();
 		LocalDate dataFine = 
-				LocalDate.now().plusDays(TipoSpedizione.valueOf("tipoSpedizione").getNumeroGiorni());
-		double prezzoSpedizione = TipoSpedizione.valueOf("tipoSpedizione").getPrezzo();
+				LocalDate.now().plusDays(tipoSp.getNumeroGiorni());
+		double prezzoSpedizione = tipoSp.getPrezzo();
 		int quantitaAcquistata = Integer.parseInt(req.getParameter("quantitaAcquistata"));
 		Acquisto acquisto = new Acquisto();
 		acquisto.setId(acquisto.getId());
