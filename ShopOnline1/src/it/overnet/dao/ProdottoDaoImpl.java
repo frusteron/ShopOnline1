@@ -49,7 +49,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllByCategoria(Categoria categoria) {
 		List<Prodotto> listaCategoria = new ArrayList<>();
-		String query = "select * from film where categoria = ?";
+		String query = "select * from prodotto where categoria = ?";
 		ResultSet rs = null;
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
 			prepared.setString(1, categoria.toString());
@@ -84,7 +84,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllInOfferta() {
 		List<Prodotto> listaOfferta = new ArrayList<>();
-		String query = "select * from prodotto where offerta = 0";
+		String query = "select * from prodotto where offerta = 1";
 		ResultSet rs = null;
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
 			rs = prepared.executeQuery();
@@ -118,7 +118,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 
 	@Override
 	public void updateQuantita(int idProdotto, int quantità) {
-		String query = "update prodotto set quantita_disponibile = quantita_disponibile - ? where id = ?";
+		String query = "update prodotto set quantita_disponibile = quantita_disponibile - ? where id_prodotto = ?";
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
 			prepared.setInt(1, quantità);
 			prepared.setInt(2, idProdotto);
