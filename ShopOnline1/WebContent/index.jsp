@@ -54,10 +54,10 @@
       
      
     </ul>
-      <form class="navbar-form navbar-left search" action="">
-      <button><img src="img/carrello8.png"></button>
-    </form> 
     
+      <form class="navbar-form navbar-left search" action="" style="margin: 0px;">
+      <button class=" bottone-carrello"><img src="img/carrello8.png"></button>
+    </form> 
     
      <form class="navbar-form navbar-left search" action="">
       <div class="form-group" >
@@ -65,6 +65,8 @@
       </div>
       <button type="submit" class="btn btn-default">Cerca</button>
     </form> 
+    
+    
   </div>
   
 </nav>
