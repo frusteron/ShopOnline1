@@ -23,10 +23,22 @@ public class Carrello extends HttpServlet {
 		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
 		Prodotto prodotto = prodottoDao.getProdottoById(idProdotto);
 		prodottoDao.close();
-		HashSet<Prodotto> carrello = new HashSet<>();
-		carrello.add(prodotto);
+		
 		HttpSession sessione = req.getSession();
-		sessione.setAttribute("carrello", carrello);
+
+		if(sessione.getAttribute("carrello") == null) {
+			
+			HashSet<Prodotto> carrello = new HashSet<>();
+			carrello.add(prodotto);
+			sessione.setAttribute("carrello", carrello);
+		} else {
+			
+			((HashSet<Prodotto>) sessione.getAttribute("carrello")).add(prodotto);
+			
+		}
+		
+		
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("carrello.jsp");
 		dispatcher.forward(req, resp);
 		

@@ -16,7 +16,7 @@
 <body>
 
 <% Utente utente = (Utente) session.getAttribute ("utenteLoggato");  %>
-<% HashSet<Prodotto> carrello = (HashSet<Prodotto>)request.getAttribute("carrello"); %>
+<% HashSet<Prodotto> carrello = (HashSet<Prodotto>)session.getAttribute("carrello"); %>
 
 
 <nav class="navbar navbar-inverse">

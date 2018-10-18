@@ -197,7 +197,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public Prodotto getProdottoById(int id) {
 		Prodotto prodotto = new Prodotto();
-		String query = "select * from Prodotto where id = ?";
+		String query = "select * from Prodotto where id_prodotto = ?";
 		ResultSet rs = null;
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
 			prepared.setInt(1, id);
