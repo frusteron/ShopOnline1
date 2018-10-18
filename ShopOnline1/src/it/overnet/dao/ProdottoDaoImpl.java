@@ -118,7 +118,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 
 	@Override
 	public void updateQuantita(int idProdotto, int quantità) {
-		String query = "update prodotto set quantita_disponibile = quantita_disponibile - ? where id_prodotto = ?";
+		String query = "update prodotto set quantita_disponibile = quantita_disponibile = ? where id_prodotto = ?";
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
 			prepared.setInt(1, quantità);
 			prepared.setInt(2, idProdotto);
@@ -194,7 +194,39 @@ public class ProdottoDaoImpl implements ProdottoDao {
 		return listaProdotti;
 	}
 
+	@Override
+	public Prodotto getProdottoById(int id) {
+		Prodotto prodotto = new Prodotto();
+		String query = "select * from Prodotto where id = ?";
+		ResultSet rs = null;
+		try (PreparedStatement prepared = connection.prepareStatement(query)) {
+			prepared.setInt(1, id);
+			rs = prepared.executeQuery();
+			while (rs.next()) {
+				prodotto.setId(rs.getInt(1));
+				prodotto.setNome(rs.getString(2));
+				prodotto.setCategoria(Categoria.valueOf(rs.getString(3)));
+				prodotto.setMarca(rs.getString(4));
+				prodotto.setPrezzo(rs.getDouble(5));
+				prodotto.setOfferta(rs.getBoolean(6));
+				prodotto.setSconto(rs.getInt(7));
+				prodotto.setQuantitaDisponibile(rs.getInt(8));
+				prodotto.setImmagine(rs.getString(9));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return prodotto;
 	}
+}
 		
 
 

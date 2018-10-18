@@ -1,24 +1,24 @@
-<%@ page import="it.overnet.model.Prodotto" %>
-<%@ page import="java.util.List" %>
-<%@ page import="it.overnet.model.Utente" %>
+<%@page import="java.util.HashSet"%>
+<%@page import="it.overnet.model.Prodotto" %>
+<%@page import="java.util.List"%>
+<%@page import="it.overnet.model.Utente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>LISTA CATEGORIE</title>
+<title>CARRELLO</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/stile.css">
-<script type="text/javascript" src="js/popover.js"></script>
 </head>
 <body>
 
 <% Utente utente = (Utente) session.getAttribute ("utenteLoggato");  %>
-<% List<Prodotto> listaProdotti = (List<Prodotto>)
-request.getAttribute("listaCategoria");%>
+<% HashSet<Prodotto> carrello = (HashSet<Prodotto>)request.getAttribute("carrello"); %>
+
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -64,78 +64,41 @@ request.getAttribute("listaCategoria");%>
         
         <!-- chiusura navbar -->
 <!-- intestazione -->
+
 <div class="page-header text-center"> <!-- page-header o jumbotron -->
-<h1>LISTA PRODOTTI</h1>
+<h1>CARRELLO</h1>
 </div>
 
-<!-- base pagina -->
 <div class="container">
 <table class="table table-hover">
 <thead>
 <th>Nome</th>
-<th>Marca 
-<a href="ordina?sort=marca">
-<span class="glyphicon glyphicon-sort-by-alphabet">
-</span></a></th>
-<th>Prezzo <a href="ordina?sort=prezzo">
-<span class="glyphicon glyphicon-sort-by-order">
-</span></a></th>
-<th>Quantita Disponibile <a href="ordina?sort=quantita">
-<span class="glyphicon glyphicon-sort-by-order">
-</span></a>
-</th>
+<th>Categoria</th>
+<th>Marca</th>
+<th>Prezzo</th>
 <th>Immagine</th>
+<th>Elimina</th>
 </thead>
-
-<!-- lista prodotti effettiva -->
 <tbody>
-<% for (Prodotto prodotto : listaProdotti) { %>
+<% for (Prodotto prodotto : carrello) { %>
 <tr>
 <td><%=prodotto.getNome() %> </td>
+<td><%=prodotto.getCategoria() %> </td>
 <td><%=prodotto.getMarca() %> </td>
 <td><%=prodotto.getPrezzo() %> </td>
-<td><%=prodotto.getQuantitaDisponibile() %> </td>
 <td><img src="<%=prodotto.getImmagine() %>"> </td>
 <td>
-<form action="Acquista" method="get">
+<form action="prodottiCarrello" method="post">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
-<input type="submit" value="Acquista"
-<% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
-class="btn btn-warning disabled" onclick="return false"
-<% } else { %>
-class="btn btn-warning"
-<% } %>
-<% if (utente == null) { %>
-data-toggle="popover" title="Fai<br>la</br>Login"
-<% } %>
-<% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
-data-toggle="popover" title="Attualmente Non Disponibile"
-<% } %>
->
-
-<form action="Aggiungi al carrello" method="get">
-<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
-<input type="submit" value="Agiungi al carrello"
-<% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
-class="btn btn-warning disabled" onclick="return false"
-<% } else { %>
-class="btn btn-warning"
-<% } %>
-<% if (utente == null) { %>
-data-toggle="popover" title="Fai<br>la</br>Login"
-<% } %>
-<% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
-data-toggle="popover" title="Attualmente Non Disponibile"
-<% } %>
->
+<input type="submit" value="Elimina" class="btn btn-warning">
 </form>
 </td>
 </tr>
 <%}%>
-
 </tbody>
 </table>
 </div>
+
 
 
 </body>

@@ -86,4 +86,13 @@
   <servlet-name>Ordina</servlet-name>
   <url-pattern>/ordina</url-pattern>
   </servlet-mapping>
+  <!-- Carrello -->
+  <servlet>
+  <servlet-name>Carrello</servlet-name>
+  <servlet-class>it.overnet.controller.Carrello</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>Carrello</servlet-name>
+  <url-pattern>/carrello</url-pattern>
+  </servlet-mapping>
 </web-app>
