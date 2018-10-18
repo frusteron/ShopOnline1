@@ -49,9 +49,18 @@ request.getAttribute("listaCategoria");%>
           <li><a href="listaCategoria?categoria=MAGLIERIA">MAGLIERIA</a></li>
           <li><a href="listaCategoria?categoria=ACCESSORI">ACCESSORI</a></li>
         </ul>
-        </li>
-        </div>
-        </nav>
+      </li>
+    </ul>
+    
+     <form class="navbar-form navbar-left search" action="">
+      <div class="form-group" >
+        <input type="text" class="form-control" placeholder="Cerca" name="search">
+      </div>
+      <button type="submit" class="btn btn-default">Cerca</button>
+    </form> 
+    
+  </div>
+</nav>
         
         <!-- chiusura navbar -->
 <!-- intestazione -->
