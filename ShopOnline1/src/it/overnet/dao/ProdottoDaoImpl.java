@@ -172,7 +172,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllProdottiOrdinati(int idUtente) {
 		List<Prodotto> listaProdotti = new ArrayList<>();
-		String query = "select * from prodotto inner join acquisto on p.id_prodotto = a.id_prodotto "
+		String query = "select * from prodotto inner join acquisto on prodotto.id_prodotto = acquisto.id_prodotto "
 				+ "where data_fine >= sysdate";
 		try(Statement statement = connection.createStatement();
 				ResultSet rs = statement.executeQuery(query)){
