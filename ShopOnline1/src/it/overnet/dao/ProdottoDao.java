@@ -22,5 +22,7 @@ public interface ProdottoDao {
 	
 	public Prodotto getProdottoById(int id);
 	
+	public List<Prodotto> getProdottoByNomeOMarca(String nome);
+	
 	public void close();
 }

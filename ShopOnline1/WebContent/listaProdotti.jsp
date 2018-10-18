@@ -100,7 +100,7 @@ request.getAttribute("listaProdotti");%>
 <td><%=prodotto.getQuantitaDisponibile() %> </td>
 <td><img src="<%=prodotto.getImmagine() %>"> </td>
 <td>
-<form action="Acquista" method="get">
+<form action="acquista.jsp" method="get">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
 <input type="submit" value="Acquista"
 <% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
