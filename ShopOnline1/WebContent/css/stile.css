@@ -26,9 +26,10 @@ form > button > img {
 	/*width: 20px !important;
 	height: 20px !important;*/
 }
-form > button {
+.bottone-carrello {
 	background-color: transparent;
 	width: 40px;
 	padding: 0;
 	border: none !important;
+	margin-top: 5px;
 }

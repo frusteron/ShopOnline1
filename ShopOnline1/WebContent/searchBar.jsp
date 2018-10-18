@@ -1,3 +1,5 @@
+<%@page import="it.overnet.model.Prodotto"%>
+<%@page import="java.util.List"%>
 <%@page import="it.overnet.model.Utente"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
@@ -5,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Home</title>
+<title>SearchBar</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js">
 </script>
@@ -14,9 +16,9 @@
 <link rel="stylesheet" href="css/stile.css">
 </head>
 <body>
-<% Utente utente = (Utente) session.getAttribute("utenteLoggato"); %>
-
-
+<% Utente utente = (Utente) session.getAttribute ("utenteLoggato");  %>
+<% List<Prodotto> listaProdotti = (List<Prodotto>)
+request.getAttribute("listaProdotto");%>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -36,7 +38,6 @@
       <% } %>
       <li><a href="listaProdotti">Lista Prodotti</a>
             <li><a href="listaOfferta">Lista Offerta</a>
-            
       
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="">
@@ -47,63 +48,57 @@
           <li><a href="listaCategoria?categoria=PANTALONI">PANTALONI</a></li>
           <li><a href="listaCategoria?categoria=MAGLIERIA">MAGLIERIA</a></li>
           <li><a href="listaCategoria?categoria=ACCESSORI">ACCESSORI</a></li>
-        </ul>
+          </ul>
       </li>
-      
-      
-      
-     
     </ul>
     
-      <form class="navbar-form navbar-left search" action="" style="margin: 0px;">
-      <button class=" bottone-carrello"><img src="img/carrello8.png"></button>
-    </form> 
-    
-     <form class="navbar-form navbar-left search" action="">
+     <form class="navbar-form navbar-left search" action="search">
       <div class="form-group" >
         <input type="text" class="form-control" placeholder="Cerca" name="search">
       </div>
       <button type="submit" class="btn btn-default">Cerca</button>
     </form> 
     
-    
   </div>
-  
 </nav>
 
+<!-- lista prodotti effettiva -->
+<tbody>
+<% for (Prodotto prodotto : listaProdotti) { %>
+<tr>
+<td><%=prodotto.getNome() %> </td>
+<td><%=prodotto.getMarca() %> </td>
+<td><%=prodotto.getPrezzo() %> </td>
+<td><%=prodotto.getQuantitaDisponibile() %> </td>
+<td><img src="<%=prodotto.getImmagine() %>"> </td>
+<td>
+<form action="acquista.jsp" method="get">
+<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
+<input type="submit" value="Acquista"
+<% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
+class="btn btn-warning disabled" onclick="return false"
+<% } else { %>
+class="btn btn-warning"
+<% } %>
+<% if (utente == null) { %>
+data-toggle="popover" title="Fai<br>la</br>Login"
+<% } %>
+<% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
+data-toggle="popover" title="Attualmente Non Disponibile"
+<% } %>
+>
+<% } %>
+</form>
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3000">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="img/adidas.jpg" class="img-carousel" >
-    </div>
 
-    <div class="item">
-      <img src="img/diesel.jpg" class="img-carousel">
-    </div>
 
-    <div class="item">
-      <img src="img/diesel2.jpg" class="img-carousel">
-    </div>
-    
-  </div>
 
-  <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
-</div>
+
+
+
+
+
 
 
 

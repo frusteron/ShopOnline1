@@ -226,6 +226,43 @@ public class ProdottoDaoImpl implements ProdottoDao {
 		}
 		return prodotto;
 	}
+
+	@Override
+	public List<Prodotto> getProdottoByNomeOMarca(String nome) {
+		List<Prodotto> listaProdotti = new ArrayList<>();
+		String query = "select * from Prodotto where nome=? or marca=?";
+		ResultSet rs = null;
+		try (PreparedStatement prepared = connection.prepareStatement(query)) {
+			prepared.setString(1, nome);
+			prepared.setString(2, nome);
+			rs = prepared.executeQuery();
+			while (rs.next()) {
+				Prodotto prodotto = new Prodotto();
+				prodotto.setId(rs.getInt(1));
+				prodotto.setNome(rs.getString(2));
+				prodotto.setCategoria(Categoria.valueOf(rs.getString(3)));
+				prodotto.setMarca(rs.getString(4));
+				prodotto.setPrezzo(rs.getDouble(5));
+				prodotto.setOfferta(rs.getBoolean(6));
+				prodotto.setSconto(rs.getInt(7));
+				prodotto.setQuantitaDisponibile(rs.getInt(8));
+				prodotto.setImmagine(rs.getString(9));
+				listaProdotti.add(prodotto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+		return listaProdotti;
+	}
 }
 		
 
