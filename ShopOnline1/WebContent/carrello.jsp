@@ -91,7 +91,7 @@
 <td><%=prodotto.getPrezzo() %> </td>
 <td><img src="<%=prodotto.getImmagine() %>"> </td>
 <td>
-<form action="prodottiCarrello" method="post">
+<form action="listaProdotti.jsp" method="post">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
 <input type="submit" value="Elimina" class="btn btn-warning">
 </form>

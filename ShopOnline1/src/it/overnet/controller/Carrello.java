@@ -36,7 +36,6 @@ public class Carrello extends HttpServlet {
 			((HashSet<Prodotto>) sessione.getAttribute("carrello")).add(prodotto);
 		} 
 		
-		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("carrello.jsp");
 		dispatcher.forward(req, resp);
 		
@@ -44,15 +43,19 @@ public class Carrello extends HttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// recuperare id film e id utente e deve aggiornare la quantita del film
-		// deve aggiornare in corso dell'affitto e rindirizzamento sulla stessa pagina
+		
 		int idProdotto = Integer.parseInt(req.getParameter("idProdotto"));
 		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
+		Prodotto prodotto = prodottoDao.getProdottoById(idProdotto);
 		prodottoDao.close();
-	    
+		
 		HttpSession sessione = req.getSession();
-	    
-	
+		
+			((HashSet<Prodotto>) sessione.getAttribute("carrello")).remove(prodotto);
+			
+		RequestDispatcher dispatcher = req.getRequestDispatcher("carrello.jsp");
+		dispatcher.forward(req, resp);
+		
+		}
+		
 	}
-	
-}
