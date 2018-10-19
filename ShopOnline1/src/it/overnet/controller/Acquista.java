@@ -26,6 +26,8 @@ public class Acquista extends HttpServlet {
 		Utente utente = (Utente) sessione.getAttribute("utenteLoggato");
 		int idUtente = utente.getId();
 		int idProdotto = Integer.parseInt(req.getParameter("idProdotto"));
+		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
+		Prodotto prodotto = prodottoDao.getProdottoById(idProdotto);
 		TipoSpedizione tipoSp = TipoSpedizione.valueOf(req.getParameter("tipoSpedizione"));
 		LocalDate dataInizio = LocalDate.now();
 		LocalDate dataFine = 
@@ -41,14 +43,16 @@ public class Acquista extends HttpServlet {
 		acquisto.setQuantitaAcquistata(quantitaAcquistata);
 		acquisto.setIdUtente(idUtente);
 		acquisto.setIdProdotto(idProdotto);
+		double prezzoTotale = ((prodotto.getPrezzo() - 
+		( prodotto.getPrezzo()* prodotto.getSconto()/100))* quantitaAcquistata) + acquisto.getPrezzoDiSpedizione();
 		AcquistoDaoImpl acquistoDao = new AcquistoDaoImpl();
 		acquistoDao.acquista(acquisto);
 		System.out.println(acquisto);
-		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
 		prodottoDao.updateQuantita(idProdotto, quantitaAcquistata);
 		prodottoDao.close();
 		acquistoDao.close();
-		RequestDispatcher dispatcher = req.getRequestDispatcher("listaProdotti");
+		req.setAttribute("prezzoTotale", prezzoTotale);
+		RequestDispatcher dispatcher = req.getRequestDispatcher("listaProdotti.jsp");
 		dispatcher.forward(req, resp);
 		
 		
