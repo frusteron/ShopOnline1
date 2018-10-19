@@ -24,8 +24,6 @@ public interface ProdottoDao {
 	public Prodotto getProdottoById(int id);
 	
 	public List<Prodotto> getProdottoByNomeOMarca(String nome);
-	
-	public HashSet<Prodotto> listaSenzaProdotto (int idProdotto, HashSet<Prodotto> lista);
-	
+		
 	public void close();
 }
