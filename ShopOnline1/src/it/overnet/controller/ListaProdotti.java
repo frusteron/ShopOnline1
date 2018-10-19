@@ -24,5 +24,6 @@ public class ListaProdotti extends HttpServlet {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("listaProdotti.jsp");
 		dispatcher.forward(req, resp);
 		
+		
 	}
 }

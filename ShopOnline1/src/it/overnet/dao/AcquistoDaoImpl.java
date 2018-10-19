@@ -57,7 +57,7 @@ public class AcquistoDaoImpl implements AcquistoDao {
 					acquisto.setDataInizio(rs.getDate(3).toLocalDate());
 					acquisto.setDataFine(rs.getDate(4).toLocalDate());
 					acquisto.setPrezzoDiSpedizione(rs.getDouble(5));
-					acquisto.setQuantitaAquistata(rs.getInt(6));
+					acquisto.setQuantitaAcquistata(rs.getInt(6));
 					acquisto.setIdUtente(rs.getInt(7));
 					acquisto.setIdProdotto(rs.getInt(8));
 					listaAcquisti.add(acquisto);
@@ -80,7 +80,7 @@ public class AcquistoDaoImpl implements AcquistoDao {
 					acquisto.setDataInizio(rs.getDate(3).toLocalDate());
 					acquisto.setDataFine(rs.getDate(4).toLocalDate());
 					acquisto.setPrezzoDiSpedizione(rs.getDouble(5));
-					acquisto.setQuantitaAquistata(rs.getInt(6));
+					acquisto.setQuantitaAcquistata(rs.getInt(6));
 					acquisto.setIdUtente(rs.getInt(7));
 					acquisto.setIdProdotto(rs.getInt(8));
 					listaAcquisti.add(acquisto);
