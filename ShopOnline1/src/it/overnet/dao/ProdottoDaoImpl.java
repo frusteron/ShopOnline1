@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 import it.overnet.connection.DBConnection;
@@ -263,6 +264,21 @@ public class ProdottoDaoImpl implements ProdottoDao {
 		
 		return listaProdotti;
 	}
+
+	@Override
+	public HashSet<Prodotto> listaSenzaProdotto(int idProdotto, HashSet<Prodotto> lista) {
+		Prodotto prodotto = new Prodotto();
+		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
+		prodotto = prodottoDao.getProdottoById(idProdotto);
+		if (prodotto.getId() == idProdotto) {
+			lista.remove(prodotto);
+		}
+		return lista;
+		
+		
+	}
+
+	
 }
 		
 
