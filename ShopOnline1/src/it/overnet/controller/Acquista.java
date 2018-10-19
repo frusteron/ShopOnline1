@@ -48,12 +48,14 @@ public class Acquista extends HttpServlet {
 		prodottoDao.updateQuantita(idProdotto, quantitaAcquistata);
 		prodottoDao.close();
 		acquistoDao.close();
-		RequestDispatcher dispatcher = req.getRequestDispatcher("listaProdotti.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("listaProdotti");
 		dispatcher.forward(req, resp);
 		
+		
+	
+		}
 
 		}
 		
 		
-	}
 
