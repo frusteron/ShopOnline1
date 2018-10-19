@@ -48,12 +48,12 @@
           <li><a href="listaCategoria?categoria=PANTALONI">PANTALONI</a></li>
           <li><a href="listaCategoria?categoria=MAGLIERIA">MAGLIERIA</a></li>
           <li><a href="listaCategoria?categoria=ACCESSORI">ACCESSORI</a></li>
+          <li>
         </ul>
       </li>
     </ul>
-    
      <form class="navbar-form navbar-left search" action="" style="margin: 0px;">
-      <button class=" bottone-carrello"><img src="img/carrello8.png"></button>
+      <button class=" bottone-carrello"><img src="img/carrello8.png"><div><%=carrello.size()%></div></button>
     </form> 
     
      <form class="navbar-form navbar-left search" action="search">
