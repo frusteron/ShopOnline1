@@ -66,7 +66,7 @@
 <div class="form-group">
 <span class="col-lg-4"></span>
 <div class="col-lg-5">
-<input type="radio" name="tipoSpedizione" value="PREMIUM" checked >Premium
+<input  type="radio" name="tipoSpedizione" value="PREMIUM" checked >Premium
 <br>
 <input type="radio" name="tipoSpedizione" value="ORDINARIA">Ordinaria
 <br>

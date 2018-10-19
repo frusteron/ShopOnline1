@@ -13,7 +13,7 @@
 </script>
 <link rel="stylesheet" href="css/stile.css">
 </head>
-<body>
+<body >
 <% Utente utente = (Utente) session.getAttribute("utenteLoggato"); %>
 
 
