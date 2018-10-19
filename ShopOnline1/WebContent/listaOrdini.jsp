@@ -91,12 +91,11 @@ request.getAttribute("listaOrdini");%>
 <td>
 <div class="zoom">
 <img src="<%=prodotto.getImmagine() %>"></div> </td>
-</tr>
+<td>
 <%}%>
 </tbody>
 </table>
 </div>
-
 
 
 </body>
