@@ -103,7 +103,6 @@ request.getAttribute("listaProdotti");%>
 <td><%=prodotto.getMarca() %> </td>
 <td><%=prodotto.getPrezzo() %> </td>
 <td><%=prodotto.getQuantitaDisponibile() %> </td>
-<td><%=prodotto.getQuantitaDisponibile() %> </td>
 <td>
 <div class="zoom">
 <img src="<%=prodotto.getImmagine() %>"></div> </td>
