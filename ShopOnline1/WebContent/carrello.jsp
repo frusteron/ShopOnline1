@@ -55,7 +55,7 @@
       <button class=" bottone-carrello"><img src="img/carrello8.png"></button>
     </form> 
     
-     <form class="navbar-form navbar-left search" action="">
+     <form class="navbar-form navbar-left search" action="search">
       <div class="form-group" >
         <input type="text" class="form-control" placeholder="Cerca" name="search">
       </div>
@@ -89,8 +89,11 @@
 <td><%=prodotto.getCategoria() %> </td>
 <td><%=prodotto.getMarca() %> </td>
 <td><%=prodotto.getPrezzo() %> </td>
-<td><img src="<%=prodotto.getImmagine() %>"> </td>
 <td>
+<div class="zoom">
+<img src="<%=prodotto.getImmagine() %>"></div> </td>
+<td>
+
 <form action="prodottiCarrello" method="post">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
 <input type="submit" value="Elimina" class="btn btn-warning">

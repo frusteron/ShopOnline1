@@ -88,7 +88,9 @@ request.getAttribute("listaProdotto");%>
 <td><%=prodotto.getMarca() %> </td>
 <td><%=prodotto.getPrezzo() %> </td>
 <td><%=prodotto.getQuantitaDisponibile() %> </td>
-<td><img src="<%=prodotto.getImmagine() %>"> </td>
+<td>
+<div class="zoom">
+<img src="<%=prodotto.getImmagine() %>"></div> </td>
 <td>
 <form action="acquista.jsp" method="get">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">

@@ -49,7 +49,7 @@
       </li>
     </ul>
     
-     <form class="navbar-form navbar-left search" action="">
+     <form class="navbar-form navbar-left search" action="search">
       <div class="form-group" >
         <input type="text" class="form-control" placeholder="Cerca" name="search">
       </div>
@@ -97,7 +97,9 @@
 <td><%=prodotto.getSconto() %> </td>
 <td><%=prodotto.getPrezzo()-(prodotto.getPrezzo()*prodotto.getSconto()/100) %></td>
 <td><%=prodotto.getQuantitaDisponibile() %> </td>
-<td><img src="<%=prodotto.getImmagine() %>"> </td>
+<td>
+<div class="zoom">
+<img src="<%=prodotto.getImmagine() %>"></div> </td>
 <td>
 <form action="Acquista" method="get">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">

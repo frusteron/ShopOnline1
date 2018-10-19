@@ -56,7 +56,7 @@ request.getAttribute("listaProdotti");%>
       <button class=" bottone-carrello"><img src="img/carrello8.png"></button>
     </form> 
     
-     <form class="navbar-form navbar-left search" action="">
+     <form class="navbar-form navbar-left search" action="search">
       <div class="form-group" >
         <input type="text" class="form-control" placeholder="Cerca" name="search">
       </div>
@@ -102,7 +102,9 @@ request.getAttribute("listaProdotti");%>
 <td><%=prodotto.getMarca() %> </td>
 <td><%=prodotto.getPrezzo() %> </td>
 <td><%=prodotto.getQuantitaDisponibile() %> </td>
-<td><img src="<%=prodotto.getImmagine() %>"> </td>
+<td>
+<div class="zoom">
+<img src="<%=prodotto.getImmagine() %>"></div> </td>
 <td>
 <form action="acquista.jsp" method="get">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">

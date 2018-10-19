@@ -59,7 +59,7 @@
       <button class=" bottone-carrello"><img src="img/carrello8.png"></button>
     </form> 
     
-     <form class="navbar-form navbar-left search" action="">
+     <form class="navbar-form navbar-left search" action="search">
       <div class="form-group" >
         <input type="text" class="form-control" placeholder="Cerca" name="search">
       </div>
