@@ -20,6 +20,7 @@
 <% List<Prodotto> listaProdotti = (List<Prodotto>)
 request.getAttribute("listaProdotti");%>
 
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">

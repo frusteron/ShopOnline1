@@ -137,7 +137,6 @@ class="btn btn-warning"
 </td>
 </tr>
 <%}%>
-
 </tbody>
 </table>
 </div>

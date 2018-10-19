@@ -47,7 +47,8 @@ public class AcquistoDaoImpl implements AcquistoDao {
 	@Override
 	public List<Acquisto> getAllAcquisti(int idUtente) {
 		List<Acquisto> listaAcquisti = new ArrayList<>();
-		String query = "select * from acquisto where data_fine < sysdate";
+		String query = "select * from acquisto a inner join prodotto p on p.id_prodotto = a.id_prodotto "
+				+ "where data_fine < sysdate and id_utente = " + idUtente;
 		try(Statement statement = connection.createStatement();
 				ResultSet rs = statement.executeQuery(query)){
 				while(rs.next()){
@@ -70,7 +71,8 @@ public class AcquistoDaoImpl implements AcquistoDao {
 	@Override
 	public List<Acquisto> getAllOrdini(int idUtente) {
 		List<Acquisto> listaAcquisti = new ArrayList<>();
-		String query = "select * from acquisto where data_fine > sysdate";
+		String query = "select * from acquisto a inner join prodotto p on p.id_prodotto = a.id_prodotto "
+				+ "where data_fine >= sysdate and id_utente = " + idUtente;
 		try(Statement statement = connection.createStatement();
 				ResultSet rs = statement.executeQuery(query)){
 				while(rs.next()){

@@ -146,7 +146,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	public List<Prodotto> getAllProdottiAcquistati(int idUtente) {
 		List<Prodotto> listaProdotti = new ArrayList<>();
 		String query = "select * from prodotto p inner join acquisto a on p.id_prodotto = a.id_prodotto "
-				+ "where data_fine < sysdate";
+				+ "where data_fine < sysdate and id_utente = " + idUtente;
 		try(Statement statement = connection.createStatement();
 				ResultSet rs = statement.executeQuery(query)){
 			while (rs.next()) {
@@ -173,7 +173,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	public List<Prodotto> getAllProdottiOrdinati(int idUtente) {
 		List<Prodotto> listaProdotti = new ArrayList<>();
 		String query = "select * from prodotto inner join acquisto on prodotto.id_prodotto = acquisto.id_prodotto "
-				+ "where data_fine >= sysdate";
+				+ "where data_fine >= sysdate and id_utente = " + idUtente;
 		try(Statement statement = connection.createStatement();
 				ResultSet rs = statement.executeQuery(query)){
 			while (rs.next()) {
