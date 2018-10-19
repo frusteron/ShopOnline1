@@ -12,6 +12,7 @@
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/stile.css">
+<script type="text/javascript" src="js/popover.js"></script>
 </head>
 <body>
 
