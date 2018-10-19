@@ -24,9 +24,19 @@ public class ListaAcquisti extends HttpServlet{
 		Utente utente = (Utente) sessione.getAttribute("utenteLoggato");
 		int idUtente = utente.getId();
 		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
-		List<Prodotto> listaAcquisti = prodottoDao.getAllProdottiAcquistati(idUtente);
+		List<Prodotto> listaProdotti = prodottoDao.getAllProdottiAcquistati(idUtente);
 		prodottoDao.close();
+		AcquistoDaoImpl acquistoDao = new AcquistoDaoImpl();
+		List<Acquisto> listaAcquisti = acquistoDao.getAllAcquisti(idUtente);
+		acquistoDao.close();
+		req.setAttribute("listaProdotti", listaProdotti);
 		req.setAttribute("listaAcquisti", listaAcquisti);
+		
+		for (Acquisto acquisto : listaAcquisti) {
+			System.out.print(acquisto + " - " );
+			System.out.println(listaProdotti.get(listaAcquisti.indexOf(acquisto)));
+		}
+		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("listaAcquisti.jsp");
 		dispatcher.forward(req, resp);
 		
