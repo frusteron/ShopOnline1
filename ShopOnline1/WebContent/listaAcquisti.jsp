@@ -89,13 +89,15 @@ List<Acquisto> listaAcquisti = (List<Acquisto>) request.getAttribute("listaAcqui
 </thead>
 <tbody>
 <% for (Prodotto prodotto : listaProdotti) {
-Acquisto acquisto = listaAcquisti.get(listaProdotti.indexOf(prodotto)); %>
+Acquisto acquisto = listaAcquisti.get(listaProdotti.indexOf(prodotto)); 
+double prezzoTotale = ((prodotto.getPrezzo() - (prodotto.getPrezzo()*prodotto.getSconto()/100))*
+		acquisto.getQuantitaAcquistata()) + acquisto.getPrezzoDiSpedizione();%>
 <tr>
 <td><%=prodotto.getNome() %> </td>
 <td><%=prodotto.getCategoria() %> </td>
 <td><%=prodotto.getMarca() %> </td>
 <td><%=acquisto.getDataFine() %> </td>
-<td><%=acquisto.getDataInizio() %> </td>
+<td><%=prezzoTotale %> </td>
 <td><%=acquisto.getQuantitaAcquistata() %> </td>
 <td>
 <div class="zoom">
