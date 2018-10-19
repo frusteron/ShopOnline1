@@ -91,12 +91,6 @@ request.getAttribute("listaOrdini");%>
 <td>
 <div class="zoom">
 <img src="<%=prodotto.getImmagine() %>"></div> </td>
-<td>
-<form action="prodottiOrdinati" method="post">
-<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
-<input type="submit" value="Reso" class="btn btn-warning">
-</form>
-</td>
 </tr>
 <%}%>
 </tbody>

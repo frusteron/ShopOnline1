@@ -119,7 +119,8 @@ public class ProdottoDaoImpl implements ProdottoDao {
 
 	@Override
 	public void updateQuantita(int idProdotto, int quantità) {
-		String query = "update prodotto set quantita_disponibile = quantita_disponibile = ? where id_prodotto = ?";
+		String query = "update prodotto set quantita_disponibile = quantita_disponibile - ? "
+				+ "where id_prodotto = ?";
 		try (PreparedStatement prepared = connection.prepareStatement(query)) {
 			prepared.setInt(1, quantità);
 			prepared.setInt(2, idProdotto);
@@ -144,7 +145,7 @@ public class ProdottoDaoImpl implements ProdottoDao {
 	@Override
 	public List<Prodotto> getAllProdottiAcquistati(int idUtente) {
 		List<Prodotto> listaProdotti = new ArrayList<>();
-		String query = "select * from prodotto inner join acquisto on p.id_prodotto = a.id_prodotto "
+		String query = "select * from prodotto p inner join acquisto a on p.id_prodotto = a.id_prodotto "
 				+ "where data_fine < sysdate";
 		try(Statement statement = connection.createStatement();
 				ResultSet rs = statement.executeQuery(query)){

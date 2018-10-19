@@ -14,6 +14,7 @@
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js">
 </script>
 <link rel="stylesheet" href="css/stile.css">
+<script type="text/javascript" src="js/popover.js"></script>
 </head>
 <body>
 <% Utente utente = (Utente) session.getAttribute ("utenteLoggato");  %>

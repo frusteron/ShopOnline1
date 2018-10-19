@@ -24,7 +24,7 @@ public class ListaAcquisti extends HttpServlet{
 		Utente utente = (Utente) sessione.getAttribute("utenteLoggato");
 		int idUtente = utente.getId();
 		ProdottoDaoImpl prodottoDao = new ProdottoDaoImpl();
-		List<Prodotto> listaAcquisti = prodottoDao.getAllProdottiOrdinati(idUtente);
+		List<Prodotto> listaAcquisti = prodottoDao.getAllProdottiAcquistati(idUtente);
 		prodottoDao.close();
 		req.setAttribute("listaAcquisti", listaAcquisti);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("listaAcquisti.jsp");

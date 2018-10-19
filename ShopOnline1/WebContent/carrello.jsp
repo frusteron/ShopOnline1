@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/popover.js"></script>
 <link rel="stylesheet" href="css/stile.css">
 </head>
 <body>
@@ -93,7 +94,21 @@
 <div class="zoom">
 <img src="<%=prodotto.getImmagine() %>"></div> </td>
 <td>
-
+<form action="acquista.jsp" method="get">
+<input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
+<input type="submit" value="Acquista"
+<% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
+class="btn btn-warning disabled" onclick="return false"
+<% } else { %>
+class="btn btn-warning"
+<% } %>
+<% if (utente == null) { %>
+data-toggle="popover" title="Fai<br>la</br>Login"
+<% } %>
+<% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
+data-toggle="popover" title="Attualmente Non Disponibile"
+<% } %>
+></form>
 <form action="carrello" method="post">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
 <input type="submit" value="Elimina" class="btn btn-warning">

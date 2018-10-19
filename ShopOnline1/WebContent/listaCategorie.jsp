@@ -119,21 +119,18 @@ data-toggle="popover" title="Attualmente Non Disponibile"
 <% } %>
 >
 
-<form action="Aggiungi al carrello" method="get">
+</form>
+<form action="carrello" method="get">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
 <input type="submit" value="Agiungi al carrello"
-<% if (utente == null || prodotto.getQuantitaDisponibile() < 1){ %>
+<% if (prodotto.getQuantitaDisponibile() < 1){ %>
 class="btn btn-warning disabled" onclick="return false"
+data-toggle="popover" title="Attualmente Non Disponibile"
 <% } else { %>
 class="btn btn-warning"
 <% } %>
-<% if (utente == null) { %>
-data-toggle="popover" title="Fai<br>la</br>Login"
-<% } %>
-<% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
-data-toggle="popover" title="Attualmente Non Disponibile"
-<% } %>
 >
+</form>
 </form>
 </td>
 </tr>
