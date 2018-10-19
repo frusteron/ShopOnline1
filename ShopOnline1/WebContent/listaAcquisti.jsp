@@ -1,3 +1,4 @@
+<%@page import="it.overnet.model.Acquisto"%>
 <%@page import="it.overnet.model.Prodotto" %>
 <%@page import="java.util.List"%>
 <%@page import="it.overnet.model.Utente"%>
@@ -12,12 +13,14 @@
 <script type="text/javascript" src="jquery/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/stile.css">
+<script type="text/javascript" src="js/popover.js"></script>
 </head>
 <body>
 
-<% Utente utente = (Utente) session.getAttribute ("utenteLoggato");  %>
+<% Utente utente = (Utente) session.getAttribute ("utenteLoggato"); %>
 <% List<Prodotto> listaProdotti = (List<Prodotto>)
-request.getAttribute("listaAcquisti");%>
+request.getAttribute("listaProdotti");
+List<Acquisto> listaAcquisti = (List<Acquisto>) request.getAttribute("listaAcquisti");%>
 
 
 <nav class="navbar navbar-inverse">
@@ -79,17 +82,37 @@ request.getAttribute("listaAcquisti");%>
 <th>Nome</th>
 <th>Categoria</th>
 <th>Marca</th>
+<th>Consegnato il</th>
+<th>Totale</th>
+<th>Quantità</th>
 <th>Immagine</th>
 </thead>
 <tbody>
-<% for (Prodotto prodotto : listaProdotti) { %>
+<% for (Prodotto prodotto : listaProdotti) {
+Acquisto acquisto = listaAcquisti.get(listaProdotti.indexOf(prodotto)); %>
 <tr>
 <td><%=prodotto.getNome() %> </td>
 <td><%=prodotto.getCategoria() %> </td>
 <td><%=prodotto.getMarca() %> </td>
+<td><%=acquisto.getDataFine() %> </td>
+<td><%=acquisto.getDataInizio() %> </td>
+<td><%=acquisto.getQuantitaAcquistata() %> </td>
 <td>
-<form action="prodottiAcquistati" method="post">
+<div class="zoom">
+<img src="<%=prodotto.getImmagine() %>"></div> </td>
+<td>
+<form action="acquista.jsp" method="get">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
+<input type="submit" value="Acquista nuovamente"
+<% if (prodotto.getQuantitaDisponibile() < 1){ %>
+class="btn btn-warning disabled" onclick="return false"
+<% } else { %>
+class="btn btn-warning"
+<% } %>
+<% if (prodotto.getQuantitaDisponibile() < 1){%>
+data-toggle="popover" title="Attualmente Non Disponibile"
+<% } %>
+>
 </form>
 </td>
 </tr>
