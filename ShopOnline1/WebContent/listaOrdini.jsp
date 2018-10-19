@@ -52,7 +52,7 @@ request.getAttribute("listaOrdini");%>
       </li>
     </ul>
     
-     <form class="navbar-form navbar-left search" action="">
+     <form class="navbar-form navbar-left search" action="search">
       <div class="form-group" >
         <input type="text" class="form-control" placeholder="Cerca" name="search">
       </div>
@@ -85,7 +85,9 @@ request.getAttribute("listaOrdini");%>
 <td><%=prodotto.getCategoria() %> </td>
 <td><%=prodotto.getMarca() %> </td>
 <td><%=prodotto.getPrezzo() %> </td>
-<td><img src="<%=prodotto.getImmagine() %>"> </td>
+<td>
+<div class="zoom">
+<img src="<%=prodotto.getImmagine() %>"></div> </td>
 <td>
 <form action="prodottiOrdinati" method="post">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">

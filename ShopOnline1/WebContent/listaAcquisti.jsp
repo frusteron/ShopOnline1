@@ -52,7 +52,7 @@ request.getAttribute("listaAcquisti");%>
       </li>
     </ul>
     
-     <form class="navbar-form navbar-left search" action="">
+     <form class="navbar-form navbar-left search" action="search">
       <div class="form-group" >
         <input type="text" class="form-control" placeholder="Cerca" name="search">
       </div>
