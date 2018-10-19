@@ -53,8 +53,9 @@
       </li>
     </ul>
      <form class="navbar-form navbar-left search" action="" style="margin: 0px;">
-      <button class=" bottone-carrello"><img src="img/carrello8.png"><div><%=carrello.size()%></div></button>
-    </form> 
+      <button class=" bottone-carrello"><img src="img/carrello8.png"></button>
+      <span style="color:red; font-size: 1.5em"><%=carrello.size()%></span>
+    </form>  
     
      <form class="navbar-form navbar-left search" action="search">
       <div class="form-group" >
