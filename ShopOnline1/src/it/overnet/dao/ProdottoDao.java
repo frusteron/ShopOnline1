@@ -1,5 +1,6 @@
 package it.overnet.dao;
 
+import java.util.HashSet;
 import java.util.List;
 
 import it.overnet.model.Categoria;
@@ -23,6 +24,8 @@ public interface ProdottoDao {
 	public Prodotto getProdottoById(int id);
 	
 	public List<Prodotto> getProdottoByNomeOMarca(String nome);
+	
+	public HashSet<Prodotto> listaSenzaProdotto (int idProdotto, HashSet<Prodotto> lista);
 	
 	public void close();
 }

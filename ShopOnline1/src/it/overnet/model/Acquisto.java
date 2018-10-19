@@ -47,7 +47,7 @@ public class Acquisto {
 	public int getQuantitaAcquistata() {
 		return quantitaAcquistata;
 	}
-	public void setQuantitaAquistata(int quantitaAcquistata) {
+	public void setQuantitaAcquistata(int quantitaAcquistata) {
 		this.quantitaAcquistata = quantitaAcquistata;
 	}
 	public int getIdUtente() {

@@ -2,6 +2,7 @@ package it.overnet.controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.HashSet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import it.overnet.dao.AcquistoDaoImpl;
 import it.overnet.dao.ProdottoDaoImpl;
 import it.overnet.model.Acquisto;
+import it.overnet.model.Prodotto;
 import it.overnet.model.TipoSpedizione;
 import it.overnet.model.Utente;
 
@@ -36,7 +38,7 @@ public class Acquista extends HttpServlet {
 		acquisto.setDataInizio(dataInizio);
 		acquisto.setDataFine(dataFine);
 		acquisto.setPrezzoDiSpedizione(prezzoSpedizione);
-		acquisto.setQuantitaAquistata(quantitaAcquistata);
+		acquisto.setQuantitaAcquistata(quantitaAcquistata);
 		acquisto.setIdUtente(idUtente);
 		acquisto.setIdProdotto(idProdotto);
 		AcquistoDaoImpl acquistoDao = new AcquistoDaoImpl();
@@ -49,8 +51,9 @@ public class Acquista extends HttpServlet {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("listaProdotti.jsp");
 		dispatcher.forward(req, resp);
 		
+
+		}
 		
 		
 	}
 
-}
