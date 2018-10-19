@@ -107,7 +107,7 @@ data-toggle="popover" title="Fai<br>la</br>Login"
 <% if (prodotto.getQuantitaDisponibile() < 1 && utente != null){%>
 data-toggle="popover" title="Attualmente Non Disponibile"
 <% } %>
->
+></form>
 <form action="carrello" method="post">
 <input type="hidden" name="idProdotto" value="<%= prodotto.getId()%>">
 <input type="submit" value="Elimina" class="btn btn-warning">
