@@ -21,7 +21,9 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/ShopOnline1">Shop</a>
-    </div>
+    </div>       
+    
+    
     <ul class="nav navbar-nav">
       <li class="active"><a href="/ShopOnline1">Home</a></li>
       <% if (utente == null) { %>
